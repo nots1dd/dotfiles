@@ -190,14 +190,14 @@
         "format": " {icon}  :: <span>{}</span> ",
       "return-type": "json",
       "max-length": 50,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click": "playerctl play-pause",
+      "exec": "playerctl -i firefox -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-click": "playerctl -i firefox play-pause",
       "on-click-middle": "playerctl previous",
       "on-click-right": "playerctl next",
       "format-icons": {
         "Playing": "<span foreground='#B1B946'>󰝚</span>",
         "Paused": "<span foreground='#DB4740'>󰝛</span>",
-      },
+      }, // playerctl -i param  does not showcase any media playing from that param in your waybar. Can remove that line if you want to
 
     },
     "custom/notification": {
