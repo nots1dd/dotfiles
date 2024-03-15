@@ -1,0 +1,284 @@
+@import url("colors-waybar.css");
+* {
+    font-family: "SpaceMono Nerd Font", "Inter Display Bold";
+    font-size: 13px;
+}
+@import "/home/s1dd/Documents/codestuff/scripts/hyprdots/waybar/colors-waybar.css";
+window#waybar {
+    opacity: 0.75;
+    margin-bottom: 5px;
+    background: @btn-bg;
+    border-radius: 52px;
+}
+
+tooltip {
+    background: @main-bg;
+    color: @main-fg;
+    font-size: 20px;
+    border-radius: 7px;
+    border-width: 0px;
+    opacity: 0.89;
+}
+#window {
+    font-size: 12.5px;
+    color: @wb-hvr-bg;
+    font-weight: bolder;
+}
+#workspaces {
+    background-color: @btn-bg;
+    font-size: 30px;
+    padding: 2px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,1);
+
+}
+
+#workspaces button {
+    background-color: inherit;
+    color: @btn-txt;
+	text-shadow: none;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+#workspaces button.active {
+    background-color: inherit;
+    color: #DB4740;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.modules-right { /*you can change these to make waybar look divided, etc.*/
+    background-color: inherit;
+    color: @btn-txt;
+    border-radius: 10px;
+    font-size: 12px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 4px;
+	padding-left: 4px;
+}
+.modules-left {
+    background-color: inherit;
+    color: @btn-txt;
+    border-radius: 10px;
+    font-size: 12px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-right: 4px;
+	padding-left: 4px;
+}
+@keyframes critical {
+    25% {
+        background-color: #221010;
+        color: #df7373;
+    }
+    50% {
+        background-color: @btn-bg;
+        color: @color1;
+    }
+}
+@keyframes charging {
+    50% {
+        color: #79c06b;
+        text-shadow: 0 0 10px #30ff07;
+        
+    }
+    100% {
+        background-color: @btn-bg;
+        color: 	@color1;
+    }
+}
+
+#clock,
+#tray,
+#pulseaudio,
+#custom-power,
+#temperature,
+#custom-padd,
+#custom-media,
+#custom-notification,
+#memory,
+#backlight,
+#network,
+#custom-search,
+#custom-cava,
+#bluetooth,
+#cpu,
+#battery {
+    background-color: @btn-bg;
+    font-size: 12.5px;
+    padding-right: 9px;
+    padding-left: 6px;
+    color: 	@color1;
+    font-weight : bolder;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+    margin-left: 2px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,1);
+}
+
+#clock {
+    color: @btn-txt;
+    background-color: @btn-bg;
+    border-radius: 10px;
+    padding: 4px;
+
+    font-size: 20px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,1);
+}
+#network {
+    color: #08a1ec;
+    background-color: @btn-bg;
+    font-size: 12.5px;
+    border-radius: 10px;
+    padding: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+#cpu {
+    color: @btn-txt;
+    background-color: @btn-bg;
+    font-size: 12.5px;
+    padding: 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
+    border-radius: 10px;
+}
+#bluetooth {
+    color: #F8F8F2;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 6px;
+    margin-left: 6px;
+    border-radius: 5px;
+}
+#memory {
+    color: @btn-txt;
+    background-color: @btn-bg;
+    font-size: 12.5px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 1px;
+    margin-left: 1px;
+    border-radius: 10px;
+}
+#custom-media {
+    background-color: @btn-bg;
+    font-size: 16px;
+    padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
+    color: @btn-txt;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 1px 2px 8px rgba(0,0,0,1);
+}
+
+#pulseaudio {
+    background-color: @btn-bg;
+    color: @btn-txt;
+    font-size: 12.5px;
+    padding: 4px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+#custom-notification { /*not there*/
+    color: yellow;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+#backlight {
+    color: @btn-txt;
+    background-color: @btn-bg;
+    font-size: 12.5px;
+    padding: 5px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: 1px;
+    margin-left: 0px;
+    border-radius: 10px;
+}
+#custom-power {
+    color: @btn-txt;
+    background-color: @btn-bg;
+    font-size: 16px;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 10px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,1);
+}
+#custom-search {
+    color: @btn-txt;
+    border-radius: 55px;
+    background-color: @btn-bg;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#custom-padd {
+    color: @btn-txt;
+    font-size: 20px;
+    font-weight: bolder;
+}
+#temperature {
+    font-size: 12px;
+    color: orange;
+}
+#tray {
+    padding: 10px;
+    background-color: @btn-bg;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,1);
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+#battery.charging {
+    animation-name: charging;
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+    animation-iteration-count: infinite;
+    animation-duration: 4000ms;
+}
+
+#network.ethernet.wifi {
+    animation-name: charging;
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+    animation-iteration-count: infinite;
+    animation-duration: 4000ms;
+}
+
+#battery.critical {
+    animation-name: critical;
+    animation-timing-function: cubic-bezier(1, 0.25, 0.75, 1);
+    animation-iteration-count: infinite;
+    animation-duration: 3000ms;
+}

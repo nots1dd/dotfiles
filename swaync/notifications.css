@@ -1,0 +1,96 @@
+$background: #f5f5f5;
+$text: #333;
+$selected: #007bff;
+$hover: #0069d9;
+$urgent: #ff0000;
+
+* {
+  background-color: $background;
+  color: $text;
+  all: unset;
+  font-size: 14px;
+  font-family: "SpaceMono Nerd Font 10";
+  transition: 200ms;
+}
+
+.notification-row {
+  background: transparent;
+  border-radius: 10px;
+  outline: none;
+  margin: 0;
+  padding: 0px;
+}
+
+.floating-notifications.background .notification-row .notification-background {
+  background: transparent;
+  box-shadow: 0 2px 8px 0 transparent;
+  border: 1px solid $selected;
+  border-radius: 12px;
+  margin: 16px;
+  padding: 0;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification {
+  background: transparent;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification.critical {
+  border: 2px solid $urgent;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification .notification-content {
+  margin: 14px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * {
+  min-height: 3.4em;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action {
+  border-radius: 2-px;
+  background-color: transparent;
+  margin: 6px;
+  border: 1px solid transparent;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+  background-color: $hover;
+  border: 1px solid $selected;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+  background-color: $selected;
+  color: $background;
+}
+
+.image {
+  margin: 10px 20px 10px 0px;
+}
+
+.summary {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.body {
+  font-size: 0.8rem;
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button {
+  margin: 6px;
+  padding: 2px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button:hover {
+  background-color: $selected;
+}
+
+.floating-notifications.background .notification-row .notification-background .close-button:active {
+  background-color: $selected;
+  color: $background;
+}
