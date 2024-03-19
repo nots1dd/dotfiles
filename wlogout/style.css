@@ -5,6 +5,8 @@
 @import "/home/s1dd/.config/wlogout/colors.css";
 window {
     background-color: black;
+    background-image: image(url("/home/s1dd/wallpapers/wal3.png"));
+    background-size: 100%;
 }
 
 button {
@@ -70,18 +72,18 @@ button:hover#lock {
   );
 }
 #back {
-  background-image: image(url("/home/s1dd/wallpapers/testing.png"));
-  background-size: 100%;
+  background-image: image(url("/home/s1dd/rofi/files/images/gradient.png"));
+  background-size: 120%;
 }
 button:hover#back {
-  background-image: image(url("/usr/share/endeavouros/splash.png"));
-  background-size: 100%;
+  background-image: image(url("/home/s1dd/wallpapers/walgood.png"));
+  background-size: 125%;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.7s cubic-bezier(.55,0.0,.28,1.682);
 }
 button:focus#back {
-  background-image: image(url("/usr/share/endeavouros/splash.png"));
-  background-size: 100%;
+  background-image: image(url("/home/s1dd/wallpapers/walgood.png"));
+  background-size: 125%;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.7s cubic-bezier(.55,0.0,.28,1.682);
 }

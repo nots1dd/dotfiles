@@ -3,12 +3,14 @@
     font-family: "SpaceMono Nerd Font", "Inter Display Bold";
     font-size: 13px;
 }
-@import "/home/s1dd/Documents/codestuff/scripts/hyprdots/waybar/colors-waybar.css";
+@import "/home/s1dd/dotfiles/scripts/waybar/colors-waybar.css";
 window#waybar {
     opacity: 0.75;
     margin-bottom: 5px;
     background: @btn-bg;
-    border-radius: 52px;
+    border-radius: 32px;
+    padding: 10px;
+    margin: 0;
 }
 
 tooltip {
@@ -18,16 +20,16 @@ tooltip {
     border-radius: 7px;
     border-width: 0px;
     opacity: 0.89;
+    font-weight: bolder;
 }
 #window {
-    font-size: 12.5px;
+    font-size: 12px;
     color: @wb-hvr-bg;
     font-weight: bolder;
 }
 #workspaces {
     background-color: @btn-bg;
-    font-size: 30px;
-    padding: 2px;
+    font-size: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px rgba(0,0,0,1);
 
@@ -58,6 +60,7 @@ tooltip {
 	padding-bottom: 1px;
 	padding-right: 4px;
 	padding-left: 4px;
+    font-weight: bolder;
 }
 .modules-left {
     background-color: inherit;
@@ -71,7 +74,7 @@ tooltip {
 }
 @keyframes critical {
     25% {
-        background-color: #221010;
+        background-color: @btn-bg;
         color: #df7373;
     }
     50% {
@@ -100,6 +103,7 @@ tooltip {
 #custom-media,
 #custom-notification,
 #memory,
+#custom-wals
 #backlight,
 #network,
 #custom-search,
@@ -108,7 +112,7 @@ tooltip {
 #cpu,
 #battery {
     background-color: @btn-bg;
-    font-size: 12.5px;
+    font-size: 11.5px;
     padding-right: 9px;
     padding-left: 6px;
     color: 	@color1;
@@ -127,13 +131,13 @@ tooltip {
     border-radius: 10px;
     padding: 4px;
 
-    font-size: 20px;
+    font-size: 15px;
     box-shadow: 0px 0px 3px rgba(0,0,0,1);
 }
 #network {
     color: #08a1ec;
     background-color: @btn-bg;
-    font-size: 12.5px;
+    font-size: 11.5px;
     border-radius: 10px;
     padding: 2px;
     margin-top: 5px;
@@ -144,7 +148,7 @@ tooltip {
 #cpu {
     color: @btn-txt;
     background-color: @btn-bg;
-    font-size: 12.5px;
+    font-size: 12px;
     padding: 6px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -163,7 +167,7 @@ tooltip {
 #memory {
     color: @btn-txt;
     background-color: @btn-bg;
-    font-size: 12.5px;
+    font-size: 12px;
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -173,7 +177,7 @@ tooltip {
 }
 #custom-media {
     background-color: @btn-bg;
-    font-size: 16px;
+    font-size: 15px;
     padding-top: 2px;
 	padding-bottom: 2px;
 	padding-right: 4px;
@@ -184,11 +188,15 @@ tooltip {
     margin-right: 5px;
     box-shadow: 1px 2px 8px rgba(0,0,0,1);
 }
+#custom-wals {
+    font-weight: bolder;
+    color: @wb-hvr-bg;
+}
 
 #pulseaudio {
     background-color: @btn-bg;
     color: @btn-txt;
-    font-size: 12.5px;
+    font-size: 11px;
     padding: 4px;
     border-radius: 10px;
     margin-top: 5px;
@@ -208,7 +216,7 @@ tooltip {
 #backlight {
     color: @btn-txt;
     background-color: @btn-bg;
-    font-size: 12.5px;
+    font-size: 11px;
     padding: 5px;
     margin-top: 6px;
     margin-bottom: 6px;
@@ -219,7 +227,7 @@ tooltip {
 #custom-power {
     color: @btn-txt;
     background-color: @btn-bg;
-    font-size: 16px;
+    font-size: 12px;
     border-radius: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -241,7 +249,7 @@ tooltip {
 }
 #custom-padd {
     color: @btn-txt;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bolder;
 }
 #temperature {

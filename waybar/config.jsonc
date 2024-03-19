@@ -1,8 +1,10 @@
 {
 	"layer": "top",
 	"position": "top",
-	"margin": "2 6 3 3",
+	"margin": "1 3 3 1",
 	"spacing": 3,
+	"height": 54,
+	"width": 1750,
 	"modules-left": [
 		"custom/power",
 		//"custom/notification",
@@ -11,6 +13,7 @@
 		"custom/padd",
 		"clock",
 		"custom/padd",
+		"custom/wals",
 		"hyprland/workspaces",
 
 	],
@@ -69,13 +72,19 @@
     "offscreen-css-text": "(inactive)",
      "rewrite": {
           "(.*) — Mozilla Firefox": "  $1",
-          //"(.*) —  Spotify (Launcher)": " $1",
+          //"(.*) —  DiscordCanary": " $1",
           "(.*) - fish": "> [$1]",
       "(.*) - zsh": "> [$1]",
       "(.*) - kitty": "> [$1]",
 
     },
 },
+    "custom/wals": {
+		"tooltip": false,
+		"format": "↺",
+		//"tooltip-format": "Click for some magic!",
+		"on-click": "~/dotfiles/scripts/wals.sh"
+    },
 	"clock": {
 		"format": " {:%H:%M}",
 		"format-alt": "{:%A, %B %d, %Y (%R)}",
@@ -105,8 +114,8 @@
 	"memory": {
 		"interval": 10,
 		"format": "{used:0.1f}G",
-		"tooltip-format": "{used:0.1f} / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
-		"format-alt": "{used:0.1f} / {total:0.1f}G"
+		"tooltip-format": "{used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+		"format-alt": "{used:0.1f}G / {total:0.1f}G"
 	},
 	"custom/padd": {
 		"format": "|",
@@ -117,7 +126,7 @@
 		"tooltip-format": "{essid}({signalStrength}%) - {frequency}MHz\n{ifname} - {ipaddr}\n{bandwidthUpBytes}  - {bandwidthDownBytes} ",
 		"format": "{icon}{essid}",
 		"format-wifi": "\n{signalStrength}%",
-		"format-alt": "\n{essid}",
+		"format-alt": "    \n{essid}",
 		"format-ethernet": "\n{ipaddr}/{cidr}",
 		"format-disconnected": "⠀N/A"
 	},
@@ -146,7 +155,7 @@
 		"format-time": "{H}:{m} h",
 		"format-charging": " \n{capacity}%",
 		"format-full": "  \nFull",
-		"format": "{capacity}%\n{icon}",
+		"format": "{icon}\n{capacity}%",
 		"format-alt": " {capacity}%\n{time}",
 		"tooltip-format": " {timeTo}\n🗲 {power}",
 		"format-icons": ["", "", "", "", ""],
@@ -190,13 +199,14 @@
         "format": " {icon}  :: <span>{}</span> ",
       "return-type": "json",
       "max-length": 50,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click": "playerctl play-pause",
+      "exec": "playerctl -i firefox -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-click": "playerctl -i firefox play-pause",
       "on-click-middle": "playerctl previous",
       "on-click-right": "playerctl next",
       "format-icons": {
         "Playing": "<span foreground='#B1B946'>󰝚</span>",
         "Paused": "<span foreground='#DB4740'>󰝛</span>",
+        //"spotify": "<span foreground='#FFFFFF'>󰝛</span>"
       },
 
     },
