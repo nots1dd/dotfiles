@@ -206,7 +206,6 @@
       "format-icons": {
         "Playing": "<span foreground='#B1B946'>󰝚</span>",
         "Paused": "<span foreground='#DB4740'>󰝛</span>",
-        //"spotify": "<span foreground='#FFFFFF'>󰝛</span>"
       },
 
     },
