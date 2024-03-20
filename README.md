@@ -7,6 +7,9 @@ Current Config is using:
 4. wlogout
 5. waybar (can also use ags)
 6. swaync
+7. dunst (notif daemon)
+8. satty
+9. rofi
 
 Other Configs:
 Terminal -> `kitty`
