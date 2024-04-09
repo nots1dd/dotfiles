@@ -1,0 +1,1 @@
+swww img /home/s1dd/wallpapers/walgood.png --transition-type random --transition-step 1 --transition-duration 2 && sed -i "s|path=.*|path=/home/s1dd/wallpapers/walgood.png|" /home/s1dd/.config/hypr/hyprlock.conf

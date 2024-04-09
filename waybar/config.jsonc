@@ -1,0 +1,22 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+
+// ### Minimal -SHORT ### //
+
+{
+"include": "~/dotfiles/waybar/modules",
+"layer": "top",
+"position": "left",
+"width": 62,
+"height": 270,
+"margin-top": 3,
+
+
+"modules-center": [
+	"cpu#vertical",
+	"custom/separator#dot",
+	"memory#vertical",
+	"custom/separator#dot",
+	"temperature",
+	"custom/separator#dot",
+	"disk"],
+}

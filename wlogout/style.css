@@ -1,0 +1,104 @@
+* {
+  opacity: 0.9;
+  background-image: none;
+}
+@import "/home/s1dd/dotfiles/wlogout/colors.css";
+window {
+    background-color: black;
+    background-image: image(url("/home/s1dd/wallpapers/wal3.png"));
+    background-size: 100%;
+}
+
+button {
+    color: transparent;
+    background-color: @main-bg;
+    padding: 15px 32px;
+    margin : 15px 5px 15px 15px;
+    outline-style: none;
+    border: none;
+    border-width: 0px;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    border-radius: 30px;
+    box-shadow: none;
+    text-shadow: none;
+    animation: gradient_f 20s ease-in infinite;
+}
+
+button:focus {
+    background-color: @wb-act-bg;
+    background-size: 25%;
+    margin : 10px 0px 10px 10px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.5s cubic-bezier(.55,0.0,.28,1.682);
+}
+
+button:hover {
+    background-color: @wb-hvr-bg;
+    background-size: 25%;
+    border-radius: 30px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.5s cubic-bezier(.55,0.0,.28,1.682);
+}
+
+button:hover#lock {
+    border-radius: 30px;
+    margin : 5px 0px 5px 5px;
+}
+
+#lock {
+  background-image: image(
+    url("./icons/lock.svg"),
+    url("/usr/share/wlogout/icons/lock.png"),
+    url("/usr/local/share/wlogout/icons/lock.png")
+  );
+}
+
+#logout {
+  background-image: image(
+    url("./icons/logout.svg"),
+    url("/usr/share/wlogout/icons/logout.png"),
+    url("/usr/local/share/wlogout/icons/logout.png")
+  );
+}
+
+#suspend {
+  background-image: image(
+    url("./icons/suspend.svg"),
+    url("/usr/share/wlogout/icons/suspend.png"),
+    url("/usr/local/share/wlogout/icons/suspend.png")
+  );
+}
+#back {
+  background-image: image(url("/home/s1dd/Downloads/rofi/files/images/gradient.png"));
+  background-size: 120%;
+}
+button:hover#back {
+  background-image: image(url("/home/s1dd/wallpapers/walgood.png"));
+  background-size: 125%;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.7s cubic-bezier(.55,0.0,.28,1.682);
+}
+button:focus#back {
+  background-image: image(url("/home/s1dd/wallpapers/walgood.png"));
+  background-size: 125%;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.7s cubic-bezier(.55,0.0,.28,1.682);
+}
+#shutdown {
+  background-image: image(
+    url("./icons/shutdown.svg"),
+    url("/usr/share/wlogout/icons/shutdown.png"),
+    url("/usr/local/share/wlogout/icons/shutdown.png")
+  );
+}
+
+#reboot {
+  background-image: image(
+    url("./icons/reboot.svg"),
+    url("/usr/share/wlogout/icons/reboot.png"),
+    url("/usr/local/share/wlogout/icons/reboot.png")
+  );
+}
