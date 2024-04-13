@@ -19,7 +19,7 @@ wal28.png
 wal29.png
 wal30.png
 wal30.gif
-walgood.png" | rofi -dmenu -theme "/home/s1dd/Downloads/rofi/files/launchers/type-5/style-2.rasi")
+walgood.png" | rofi -dmenu -theme "/home/s1dd/Downloads/rofi/files/launchers/type-3/style-10.rasi")
 echo "$selected"
 swww img "/home/s1dd/wallpapers/$selected" --transition-type random --transition-step 1 --transition-duration 2
 

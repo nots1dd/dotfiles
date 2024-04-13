@@ -161,7 +161,8 @@ const options = mkOptions(OPTIONS, {
                     "discord",
                     "spotify",
                     "Code - OSS",
-                    "btop"
+                    "btop",
+                    "ModelSim-Intel FPGA Starter Edition"
                 ],
             ]),
         },
