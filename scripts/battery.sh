@@ -42,19 +42,24 @@ get_battery_state() {
 # Get current battery level and charging state
 current_level=$(get_battery_level)
 charging_state=$(get_battery_state) #format is fine
+echo "$charging_state"
 
 # Check battery level and send notification if below 20%
-if [ "$current_level" -lt 20 ] && [ "$charging_state" != "Charging" ]; then
+if [ "$current_level" -eq 100 ] && [ "$charging_state" == "Full" ]; then
+notify-send "Fully-charged"
+else
+ if [ "$current_level" -lt 20 ] && [ "$charging_state" != "Charging" ]; then
   # Ensure notify-send is installed (optional, comment out if not needed)
   # if ! command -v notify-send &> /dev/null; then
   #   echo "Warning: notify-send is not installed. Script cannot send notifications."
   # fi
 
   # Customize notification message and icon path (if desired)
-  echo "$current_level" && echo "$charging_state"
+  # echo "$current_level" && echo "$charging_state"
   notify-send "$current_level% :: LOW BATTERY! Connect to power soon."
 else
   # Battery level is normal (above 20%)
   # echo "$current_level"
   echo "$current_level% :: $charging_state. Enjoy your freedom!"
+ fi
 fi
