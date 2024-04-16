@@ -56,6 +56,7 @@ else
 
   # Customize notification message and icon path (if desired)
   # echo "$current_level" && echo "$charging_state"
+  brightnessctl set 30%-
   notify-send "$current_level% :: LOW BATTERY! Connect to power soon."
 else
   # Battery level is normal (above 20%)
