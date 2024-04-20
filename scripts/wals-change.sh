@@ -2,6 +2,7 @@
 
 selected=$(echo "wal3.png
 wal5.png
+wal11.png
 wal12.png
 wal13.png
 wal14.png
@@ -24,6 +25,12 @@ wal30.png
 wal30.gif
 wal31.png
 wal32.png
+wal33.png
+wal34.png
+wal35.png
+wal36.png
+wal37.png
+wal38.png
 walgood.png" | rofi -dmenu -theme "/home/s1dd/Downloads/rofi/files/launchers/type-3/style-10.rasi")
 echo "$selected"
 
