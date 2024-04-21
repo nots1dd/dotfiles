@@ -46,7 +46,7 @@ echo "$charging_state"
 
 # Check battery level and send notification if below 20%
 if [ "$current_level" -eq 100 ] && [ "$charging_state" == "Full" ]; then
-notify-send "Fully-charged"
+notify-send "Fully-charged!"
 else
  if [ "$current_level" -lt 20 ] && [ "$charging_state" != "Charging" ]; then
   # Ensure notify-send is installed (optional, comment out if not needed)
@@ -57,7 +57,7 @@ else
   # Customize notification message and icon path (if desired)
   # echo "$current_level" && echo "$charging_state"
   brightnessctl set 30%-
-  notify-send "$current_level% :: LOW BATTERY! Connect to power soon."
+  notify-send "$current_level% :: LOW BATTERY!"
 else
   # Battery level is normal (above 20%)
   # echo "$current_level"
