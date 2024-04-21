@@ -90,7 +90,7 @@ const options = mkOptions(OPTIONS, {
         launcher: {
             icon: {
                 colored: opt(true),
-                icon: opt(icon(distro.logo, icons.ui.search)),
+                icon: opt(icon(icons.app.terminal)),
             },
             label: {
                 colored: opt(false),
@@ -160,9 +160,9 @@ const options = mkOptions(OPTIONS, {
                     "obsidian",
                     "discord",
                     "spotify",
-                    "Code - OSS",
                     "btop",
-                    "ModelSim-Intel FPGA Starter Edition"
+                    "ModelSim-Intel FPGA Starter Edition",
+                    "systemsettings"
                 ],
             ]),
         },

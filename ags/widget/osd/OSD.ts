@@ -51,7 +51,7 @@ function OnScreenProgress(vertical: boolean) {
         ), "notify::kbd")
         .hook(audio.speaker, () => show(
             audio.speaker.volume,
-            icon(audio.speaker.icon_name || "", icons.audio.type.speaker),
+            icon(icons.audio.type.speaker),
         ), "notify::volume")
 }
 

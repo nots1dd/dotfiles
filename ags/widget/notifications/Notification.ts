@@ -2,7 +2,9 @@ import { type Notification } from "types/service/notifications"
 import GLib from "gi://GLib"
 import icons from "lib/icons"
 
-const time = (time: number, format = "%H:%M") => GLib.DateTime
+const customDefaultIcon = "~/wallpapers/pfp.jpg";
+
+const time = (time: number, format = "%H:%M:%S") => GLib.DateTime
     .new_from_unix_local(time)
     .format(format)
 
@@ -23,9 +25,7 @@ const NotificationIcon = ({ app_entry, app_icon, image }: Notification) => {
         })
     }
 
-    let icon = icons.fallback.notification
-    if (Utils.lookUpIcon(app_icon))
-        icon = app_icon
+    let icon = app_icon || icons.notifications.message;
 
     if (Utils.lookUpIcon(app_entry || ""))
         icon = app_entry || ""
@@ -40,7 +40,7 @@ const NotificationIcon = ({ app_entry, app_icon, image }: Notification) => {
         `,
         child: Widget.Icon({
             icon,
-            size: 58,
+            size: 60,
             hpack: "center", hexpand: true,
             vpack: "center", vexpand: true,
         }),
@@ -89,7 +89,7 @@ export default (notification: Notification) => {
                         xalign: 0,
                         justification: "left",
                         label: notification.body.trim(),
-                        max_width_chars: 24,
+                        max_width_chars: 30,
                         wrap: true,
                     }),
                 ],

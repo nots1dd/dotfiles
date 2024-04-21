@@ -42,6 +42,7 @@ export default {
         toolbars: "toolbars-symbolic",
         warning: "dialog-warning-symbolic",
         avatar: "avatar-default-symbolic",
+        // test: "system-dollar-symbolic",
         arrow: {
             right: "pan-end-symbolic",
             left: "pan-start-symbolic",
