@@ -6,8 +6,8 @@ Current Config is using:
 3. swww (wallpaper daemon)
 4. wlogout
 5. waybar / ags
-6. swaync
-7. dunst (notif daemon)
+6. swaync {swapped to ags}
+7. dunst (notif daemon) {swapped to ags}
 8. satty
 9. rofi-lboon-wayland
 
@@ -18,11 +18,14 @@ Other Configs:
 4. Anime -> `ani-cli`
 5. File Manager -> `Dolphin / Superfile` (want to switch to Ranger)
 
-https://github.com/nots1dd/dotfiles/assets/140317709/51cfdfa6-92a9-4d69-b827-f0211fe8eab4
-![2024-04-09_18-51-16](https://github.com/nots1dd/dotfiles/assets/140317709/9ac920ed-5459-4df7-8b50-32d2d70e3abc)
+https://github.com/nots1dd/dotfiles/assets/140317709/dc454803-4af0-4d3c-a852-33de247fa870 (the older purple theme)
 
+![2024-04-20_19-43-02](https://github.com/nots1dd/dotfiles/assets/140317709/522acd95-37ac-4eb3-b9aa-2777a1d65fa3)
 
-https://github.com/nots1dd/dotfiles/assets/140317709/dc454803-4af0-4d3c-a852-33de247fa870
+![2024-04-20_19-44-37](https://github.com/nots1dd/dotfiles/assets/140317709/c06c2e63-4520-420f-9537-703bc0a6ba5a)
+
+![2024-04-20_19-50-30](https://github.com/nots1dd/dotfiles/assets/140317709/c0485850-5cf1-4b90-a96f-8b64b9bbd44b)
+
 
 
 
@@ -37,10 +40,7 @@ AGS default config is from [Aylur's dotfiles](https://github.com/Aylur/dotfiles)
 ### Note:
 Using waybar to get information of disk, memory, cpu so on. AGS is the default bar in this config
 
-Plans:
-1. Pywal the waybar and other color schema (priority/low)
-2. Proper config of ags
-3. Clipboard and wals-change.sh rofi config
-
-
-
+Plans:)
+1. Proper config of ags
+2. Clipboard and wals-change.sh rofi config
+3. Get into nvim and have create a config
