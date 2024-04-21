@@ -4,28 +4,40 @@
 theme="/home/s1dd/Downloads/rofi/files/launchers/type-4/style-1.rasi"
 
 # Launch Rofi and capture input text
-text=$(rofi -dmenu -p "Song Link" -theme "$theme")
+text=$(rofi -dmenu -p "Song Link :: " -theme "$theme")
 
 # Check if text is not empty
 if [ -n "$text" ]; then
     # Check if the text contains "https://open.spotify.com/"
     if [[ $text == *"https://open.spotify.com/"* ]]; then
-        rofi -e "Text contains 'https://open.spotify.com/'" -theme "$theme"
+        rofi -e "Seems like valid link! Downloading..." -theme "$theme"
         # Run the command with the provided text
-        pipx run spotdl download "$text"
+        cd ~/Downloads/Songs
+
+        output=$(pipx run spotdl download "$text" 2>&1)
         if [ $? -eq 0 ]; then
             # Show a Rofi popup indicating the command is done
-            rofi -e "Success" -theme "$theme"
+            song_name=$(printf "%s\n" "$output" | tail -n 1)
+            rofi -e "~/Downloads/Songs: Success! 
+$song_name" -theme "$theme"
         else
             # Show a Rofi popup indicating the command failed
-            rofi -e "Failed. Try again. Exiting.." -theme "$theme"
+            failed=$(printf "%s" "$output" | tail -n 1)
+            rofi -e "~/Downloads/Songs: Failed.
+
+$failed 
+Try again! " -theme "$theme"
         fi
     else
-        rofi -e "Text does not contain 'https://open.spotify.com/'. Exiting.." -theme "$theme"
+        rofi -e "Invalid Song format. 
+Exiting..
+Press Esc to quit." -theme "$theme"
         echo "Exiting."
     fi
 else
-    rofi -e "No text provided. Exiting." -theme "$theme" -mesg "No action."
+    rofi -e "No text provided. 
+Exiting..
+Press Esc to quit." -theme "$theme" -mesg "No action."
 fi
 
 

@@ -34,12 +34,21 @@ wal38.png
 walgood.png" | rofi -dmenu -theme "/home/s1dd/Downloads/rofi/files/launchers/type-3/style-10.rasi")
 echo "$selected"
 
+if [ -z "$selected" ]; then
+    rofi -e "No wallpaper selected. Exiting without making any changes." -theme "/home/s1dd/Downloads/rofi/files/launchers/type-3/style-10.rasi"
+    exit 1
+fi
+
 if [[ "$selected" == *"gif" ]]; then
   # Set hyprlock.conf for GIF wallpaper
   sed -i "s|path=.*|path=/home/s1dd/wallpapers/wal3.png|" /home/s1dd/.config/hypr/hyprlock.conf
   swww img "/home/s1dd/wallpapers/$selected" --transition-type random --transition-step 1 --transition-duration 2
+  rofi -e "Success :: wallpaper changed to $selected : Hyprlock wal set to wal3.png
+Esc : Exit" -theme "/home/s1dd/Downloads/rofi/files/launchers/type-3/style-10.rasi"
 else
   # Set hyprlock.conf for non-GIF wallpaper
   sed -i "s|path=.*|path=/home/s1dd/wallpapers/$selected|" /home/s1dd/.config/hypr/hyprlock.conf
   swww img "/home/s1dd/wallpapers/$selected" --transition-type random --transition-step 1 --transition-duration 2
+  rofi -e "Success :: wallpaper changed to $selected!
+Esc : Exit" -theme "/home/s1dd/Downloads/rofi/files/launchers/type-3/style-10.rasi"
 fi
