@@ -20,6 +20,14 @@ Other Configs:
 
 https://github.com/nots1dd/dotfiles/assets/140317709/dc454803-4af0-4d3c-a852-33de247fa870 (the older purple theme)
 
+
+
+https://github.com/nots1dd/dotfiles/assets/140317709/40dd25ab-a3e0-4df0-9127-88d1828fd392
+
+Newer gruvbox theme
+
+
+
 ![2024-04-20_19-43-02](https://github.com/nots1dd/dotfiles/assets/140317709/522acd95-37ac-4eb3-b9aa-2777a1d65fa3)
 
 ![2024-04-20_19-44-37](https://github.com/nots1dd/dotfiles/assets/140317709/c06c2e63-4520-420f-9537-703bc0a6ba5a)
