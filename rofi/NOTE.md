@@ -1,6 +1,6 @@
 # NOTE
 
-For the following scripts I am NOT using custom rofi (it's from @adi1090x's rofi on github [here]())
+For the following scripts I am NOT using custom rofi (it's from @adi1090x's rofi on github [here](https://github.com/adi1090x/rofi))
 
 1. `wals-change.sh`
 2. `ags.sh`
