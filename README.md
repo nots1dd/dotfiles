@@ -1,22 +1,30 @@
-My Ricing so far (Arch linux - Hyprland)
+##  My Ricing so far :
 
-Current Config is using:
+
+1. DISTRO -> `Arch Linux` (with linux zen kernel)
+2. WM -> `Hyprland`
+3. Login Screen -> `SDDM`
+4. Shell -> `zsh`
+
+## Current Config is using:
+
 1. Hyprland
 2. Hyprlock
 3. swww (wallpaper daemon)
 4. wlogout
-5. waybar / ags
-6. swaync {swapped to ags}
-7. dunst (notif daemon) {swapped to ags}
+5. ags {waybar is **OUTDATED**}
+6. swaync {**OUTDATED**}
+7. dunst (notif daemon) {was using it for swaync and waybar but it is **OUTDATED** now}
 8. satty
 9. rofi-lboon-wayland
+10. cliphlist (and wl-clipboard-history-git)
 
-Other Configs:
-1. Terminal -> `kitty`
-2. Shell -> `zsh (oh my zsh)`
-3. music -> `cmus / spotify (with spicetify)`
-4. Anime -> `ani-cli`
-5. File Manager -> `Dolphin / Superfile` (want to switch to Ranger)
+## Other Configs:
+1. Terminal -> `kitty` [AUR package]
+2. Shell -> `oh-my-zsh with Theme: Powerlvl10k` [powerlvl10k](https://github.com/romkatv/powerlevel10k)
+3. music -> `cmus / spotify (with spicetify)` [AUR package]
+4. Anime -> `ani-cli` [AUR Package]
+5. File Manager -> `Dolphin / Superfile` (also have Ranger)
 
 https://github.com/nots1dd/dotfiles/assets/140317709/dc454803-4af0-4d3c-a852-33de247fa870 (the older purple theme)
 

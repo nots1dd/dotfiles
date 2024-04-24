@@ -11,3 +11,5 @@
 5. `Floorp -> Gruvbox Dark theme`
 
 6. `kde theme -> a. Colors: GruvboxColors ; b. Icons: Gruvbox ; c. Cursors -> WhiteSur Cursors` {Go to `systemsettings > Colors & Themes` in order to change the above}
+
+7. `Grub -> tartarus-grub (https://github.com/AllJavi/tartarus-grub)`

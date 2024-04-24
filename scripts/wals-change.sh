@@ -31,6 +31,7 @@ wal35.png
 wal36.png
 wal37.png
 wal38.png
+wal39.png
 walgood.png" | rofi -dmenu -theme "/home/s1dd/Downloads/rofi/files/launchers/type-3/style-10.rasi")
 echo "$selected"
 
