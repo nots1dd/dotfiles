@@ -43,11 +43,10 @@ Newer gruvbox theme
 ![2024-04-20_19-50-30](https://github.com/nots1dd/dotfiles/assets/140317709/c0485850-5cf1-4b90-a96f-8b64b9bbd44b)
 
 
-
-
 (Wallpaper for hyprlock and rofi change automatically with the `wals-change.sh` and others using sed not pywal)
 
-![image](https://github.com/nots1dd/dotfiles/assets/140317709/cea1e190-eef4-403d-8621-d212cca63eb5)
+![hyprlock](https://github.com/nots1dd/dotfiles/assets/140317709/9ae2d91b-741b-4a79-b7ce-9e360e9d8cc8)
+
 
 I cannot make rofi themes but I took a lot of inspiration from [this repo](https://github.com/adi1090x/rofi) and a lot of other repos I found from unix porn and stuff
 
