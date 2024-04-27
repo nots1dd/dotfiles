@@ -5,7 +5,7 @@
 @import "/home/s1dd/dotfiles/wlogout/colors.css";
 window {
     background-color: black;
-    background-image: image(url("/home/s1dd/wallpapers/wal3.png"));
+    background-image: image(url("/home/s1dd/wallpapers/wal29.png"));
     background-size: 100%;
 }
 
@@ -76,7 +76,7 @@ button:hover#lock {
   background-size: 120%;
 }
 button:hover#back {
-  background-image: image(url("/home/s1dd/wallpapers/walgood.png"));
+  background-image: image(url("/home/s1dd/wallpapers/wal21.png"));
   background-size: 125%;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.7s cubic-bezier(.55,0.0,.28,1.682);

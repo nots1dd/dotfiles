@@ -1,10 +1,9 @@
-@define-color bar-bg rgba(0, 0, 0, 0);
+@define-color bar-bg #282c34;  /* Background for the bar element */
+@define-color main-bg #282c34;  /* Main background color */
+@define-color main-fg #ebdbb2;  /* Main foreground color (text) */
 
-@define-color main-bg #24283b;
-@define-color main-fg #7aa2f7;
+@define-color wb-act-bg #83a598;  /* Active background color (e.g., button) */
+@define-color wb-act-fg #ebdbb2;  /* Active foreground color (text on button) */
 
-@define-color wb-act-bg #bb9af7;
-@define-color wb-act-fg #b4f9f8;
-
-@define-color wb-hvr-bg #7aa2f7;
-@define-color wb-hvr-fg #cfc9c2;
+@define-color wb-hvr-bg #93a1a1;  /* Hover background color */
+@define-color wb-hvr-fg #fab97f;  /* Hover foreground color (text on hover) */

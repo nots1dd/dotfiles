@@ -51,7 +51,7 @@ configuration {
     alternate-active-background: var(active);
     alternate-active-foreground: var(background);
 }
-
+w
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */
@@ -68,6 +68,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
+    border-radius:               20px 20px 20px 20px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
