@@ -51,7 +51,6 @@ configuration {
     alternate-active-background: var(active);
     alternate-active-foreground: var(background);
 }
-w
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */

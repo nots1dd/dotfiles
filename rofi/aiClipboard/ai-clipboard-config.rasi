@@ -119,7 +119,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Select...";
+    placeholder:                 "Enter...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {

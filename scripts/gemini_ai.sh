@@ -28,7 +28,7 @@ show_message() {
 
 while true; do
     # Show input text field using Rofi
-    prompt_text=$(rofi -dmenu -p " " -theme "$theme")
+    prompt_text=$(rofi -dmenu -p " GEMINI ::" -theme "$newtheme")
 
     # exiting with escape keybind
     if [ $? -ne 0 ]; then
