@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/s1dd/dotfiles/keys.sh
+source /home/s1dd/dotfiles/keys.sh # create your own keys.sh with YOUR OWN API KEY to use this script (you cant have mine sorry)
 
 # Define the API endpoint and your API key
 API_ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY"
