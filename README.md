@@ -5,6 +5,8 @@
 2. WM -> `Hyprland`
 3. Login Screen -> `SDDM`
 4. Shell -> `zsh`
+5. Package Manager -> `yay`
+6. Audio -> `pipewire-jack`
 
 ## Current Config is using:
 
@@ -14,7 +16,7 @@
 4. wlogout
 5. ags {waybar is **OUTDATED**}
 6. swaync {**OUTDATED**}
-7. dunst (notif daemon) {was using it for swaync and waybar but it is **OUTDATED** now}
+7. dunst (notif daemon) { **OUTDATED** }
 8. satty
 9. rofi-lboon-wayland
 10. cliphlist (and wl-clipboard-history-git)
@@ -24,7 +26,10 @@
 2. Shell -> `oh-my-zsh with Theme: Powerlvl10k` [powerlvl10k](https://github.com/romkatv/powerlevel10k)
 3. music -> `cmus / spotify (with spicetify)` [AUR package]
 4. Anime -> `ani-cli` [AUR Package]
-5. File Manager -> `Dolphin / Superfile` (also have Ranger)
+5. File Manager -> `Dolphin / Superfile` (also have Ranger) [superfile](https://github.com/MHNightCat/superfile/tree/v1.1.1)
+6. Sound Effects -> `easyeffects` [easyeffects](https://github.com/wwmm/easyeffects)
+7. Bar -> `ags` [aylur's gtk shell](https://github.com/Aylur/ags)
+8. Editor -> `Code OSS` [AUR package] (either code or visual-studio-bin works)
 
 https://github.com/nots1dd/dotfiles/assets/140317709/dc454803-4af0-4d3c-a852-33de247fa870 (the older purple theme)
 
@@ -57,5 +62,5 @@ Using waybar to get information of disk, memory, cpu so on. AGS is the default b
 
 Plans:)
 1. Proper config of ags
-2. Clipboard and wals-change.sh rofi config
-3. Get into nvim and have create a config
+2. Get into nvim and have create a config
+3. Prettify dotfiles as whole and have installation and cleanup scripts
