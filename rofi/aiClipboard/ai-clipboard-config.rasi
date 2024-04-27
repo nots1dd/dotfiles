@@ -20,7 +20,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "~/dotfiles/rofi/drun-bt-colors.rasi"
+@import                          "/home/s1dd/dotfiles/rofi/aiClipboard/ai-theme.rasi"
 
 * {
     font: "SpaceMonoNerd Font Bold 11";
@@ -67,8 +67,7 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      2px solid;
-    border-radius:               10px;
+    border:                      0px solid;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
@@ -89,7 +88,7 @@ mainbox {
     spacing:                     10px;
     margin:                      0px;
     padding:                     30px;
-    border:                      0px solid;
+    border:                      2px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
     background-color:            transparent;
@@ -107,27 +106,14 @@ inputbar {
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
-    children:                    [ "prompt", "textbox-prompt-colon", "entry" ];
-}
-
-prompt {
-    enabled:                     true;
-    background-color:            inherit;
-    text-color:                  inherit;
-}
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         "::";
-    background-color:            inherit;
-    text-color:                  inherit;
+    children:                    [ "entry" ];
 }
 entry {
     enabled:                     true;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "Select...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {

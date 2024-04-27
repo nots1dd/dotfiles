@@ -1,16 +1,23 @@
 #!/bin/bash
 
 # Assign theme variable
-theme="/home/s1dd/Downloads/rofi/files/launchers/type-4/style-1.rasi"
+theme="~/dotfiles/rofi/spotdl/spotdl.rasi"
 
 # Launch Rofi and capture input text
 text=$(rofi -dmenu -p "Song Link :: " -theme "$theme")
+
+show_message() {
+    rofi -e "$1" -theme "$theme" &
+    rofi_pid=$!
+    sleep 1
+    kill "$rofi_pid"
+}
 
 # Check if text is not empty
 if [ -n "$text" ]; then
     # Check if the text contains "https://open.spotify.com/"
     if [[ $text == *"https://open.spotify.com/"* ]]; then
-        rofi -e "Seems like valid link! Downloading..." -theme "$theme"
+        show_message "Seems like valid link! Downloading..."
         # Run the command with the provided text
         cd ~/Downloads/Songs
 
@@ -18,26 +25,29 @@ if [ -n "$text" ]; then
         if [ $? -eq 0 ]; then
             # Show a Rofi popup indicating the command is done
             song_name=$(printf "%s\n" "$output" | tail -n 1)
-            rofi -e "~/Downloads/Songs: Success! 
-$song_name" -theme "$theme"
+            show_message "~/Downloads/Songs: Success! 
+$song_name"
+
+            # updating cmus
+            ~/dotfiles/scripts/cmus-lib-update.sh
+
+            show_message "~/Downloads/Songs: Track added to CMUS!"
         else
             # Show a Rofi popup indicating the command failed
             failed=$(printf "%s" "$output" | tail -n 1)
-            rofi -e "~/Downloads/Songs: Failed.
+            show_message "~/Downloads/Songs: Failed.
 
 $failed 
-Try again! " -theme "$theme"
+Try again! "
         fi
     else
-        rofi -e "Invalid Song format. 
-Exiting..
-Press Esc to quit." -theme "$theme"
+        show_message "Invalid Song format. 
+Exiting.."
         echo "Exiting."
     fi
 else
-    rofi -e "No text provided. 
-Exiting..
-Press Esc to quit." -theme "$theme" -mesg "No action."
+    show_message "No text provided. 
+Exiting.."
 fi
 
 

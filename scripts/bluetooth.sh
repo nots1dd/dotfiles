@@ -22,7 +22,7 @@
 # divider="+-------------------------------------------------------+"
 divider="─────────────────────────────────────────────────────────"
 goback=" Back"
-theme="/home/s1dd/dotfiles/rofi/bluetooth-config.rasi"
+theme="/home/s1dd/dotfiles/rofi/bt/bluetooth-config.rasi"
 
 # Checks if bluetooth controller is powered on
 power_on() {
