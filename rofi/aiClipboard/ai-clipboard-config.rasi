@@ -107,7 +107,12 @@ inputbar {
     border-color:                @border-colour;
     background-color:            #3B3735;
     text-color:                  @foreground-colour;
-    children:                    [ "entry" ];
+    children:                    [ "prompt","entry" ];
+}
+prompt {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
 }
 entry {
     enabled:                     true;

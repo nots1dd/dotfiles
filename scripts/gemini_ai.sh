@@ -69,7 +69,7 @@ For more output, click Copy and Quit in the menu!" -theme "$newtheme"
     copyquit=$(echo "Copy and Quit")
     quit=$(echo "Quit")
     action="$continue\n$copyquit\n$quit"
-    chosen="$(echo -e $action | rofi -dmenu -no-fixed-num-lines -yoffset -100 -i -theme $newtheme)"
+    chosen="$(echo -e $action | rofi -dmenu -p "GEMINI MENU ::" -no-fixed-num-lines -yoffset -100 -i -theme $newtheme)"
 
     # Check user's action
     case "$chosen" in
