@@ -32,6 +32,7 @@ wal28.png
 wal29.png
 wal30.png
 wal30.gif
+wal31.gif
 wal31.png
 wal32.png
 wal33.png

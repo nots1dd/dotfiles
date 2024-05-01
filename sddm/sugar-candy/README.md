@@ -1,5 +1,7 @@
 # SDDM
 
+## THIS CONFIG IS NOW OUTDATED AS I AM USING LY (here)[https://github.com/fairyglade/ly]
+
 Theme in use : **Sugar-Candy Dark**
 
 Credits : **Marian Arlt and team** 
