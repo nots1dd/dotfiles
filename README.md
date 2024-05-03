@@ -3,7 +3,7 @@
 
 1. DISTRO -> `Arch Linux` (with linux zen kernel)
 2. WM -> `Hyprland`
-3. Login Screen -> `LY` (here)[https://github.com/fairyglade/ly]
+3. Login Screen -> `LY` [here](https://github.com/fairyglade/ly)
 4. Shell -> `zsh`
 5. Package Manager -> `yay`
 6. Audio -> `pipewire-jack`
