@@ -55,8 +55,8 @@ class Recorder extends Service {
             summary: "Screenrecord",
             body: this.#file,
             actions: {
-                "Show in Files": () => sh(`xdg-open ${this.#recordings}`),
-                "View": () => sh(`xdg-open ${this.#file}`),
+                "Show in Files": () => sh(`dolphin --platformtheme kde ${this.#recordings}`), // Open Dolphin in the directory
+                "View": () => sh(`gwenview --platformtheme kde ${this.#file}`), // Open Gwenview with KDE platform theme
             },
         })
     }
@@ -86,11 +86,11 @@ class Recorder extends Service {
             summary: "Screenshot",
             body: file,
             actions: {
-                "Show in Files": () => sh(`xdg-open ${this.#screenshots}`),
-                "View": () => sh(`xdg-open ${file}`),
+                "Show in Files": () => sh(`dolphin --platformtheme kde ${this.#screenshots}`), // Open Dolphin in the directory
+                "View": () => sh(`gwenview --platformtheme kde ${file}`), // Open Gwenview with KDE platform theme
                 "Edit": () => {
-                    if (dependencies("swappy"))
-                        sh(`swappy -f ${file}`)
+                    if (dependencies("satty"))
+                        sh(`satty -f ${file}`)
                 },
             },
         })

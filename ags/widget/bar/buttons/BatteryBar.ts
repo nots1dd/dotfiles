@@ -19,6 +19,7 @@ const PercentLabel = () => Widget.Revealer({
     reveal_child: percentage.bind(),
     child: Widget.Label({
         label: battery.bind("percent").as(p => `${p}%`),
+        css: "color: white;",
     }),
 })
 

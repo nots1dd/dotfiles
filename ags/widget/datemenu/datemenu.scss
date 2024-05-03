@@ -96,7 +96,11 @@ window#datemenu .datemenu {
         padding: $padding;
 
         .clock {
-            font-size: 5em;
+            font-size: 3.5em;
+        }
+        .clock_mini {
+            font-size: 2em;
+            color: #B0CB85;
         }
 
         .uptime {
