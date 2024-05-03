@@ -4,7 +4,7 @@
 
 2. `superfile (https://github.com/MHNightCat/superfile/tree/v1.0.0) -> default gruvbox theme`
 
-3. `spotify-launcher (with spicetify) -> Onepunch (by okarin001) {looks the most gruvbox like theme out of them all}`
+3. `spotify-launcher (with spicetify) -> text (by darkthemer) {looks the most gruvbox sptui like}`
 
 4. `Code OSS -> Gruvbox Material`
 
