@@ -12,7 +12,6 @@ configuration {
 	modi:                       "drun";
     show-icons:                 true;
     display-drun:               "";
-	drun-display-format:        "wallpapers";
 }
 
 /*****----- Global Properties -----*****/
@@ -25,14 +24,14 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       1000px;
+    width:                       190px;
     x-offset:                    0px;
     y-offset:                    0px;
 
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      5px solid;
+    border:                      2px solid;
     border-radius:               10px;
     border-color:                @selected;
     background-color:            @background;
@@ -49,7 +48,7 @@ mainbox {
     border-radius:               0px 0px 0px 0px;
     border-color:                @selected;
     background-color:            transparent;
-    children:                    [ "inputbar", "listview" ];
+    children:                    [ "listview" ];
 }
 
 /*****----- Inputbar -----*****/
@@ -63,7 +62,11 @@ inputbar {
     border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  @foreground;
-    children:                    [ "prompt", "entry" ];
+    children:                    [ "dummy" ];
+}
+
+dummy {
+    background-color: transparent;
 }
 
 prompt {
@@ -90,8 +93,8 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     8;
-    lines:                       4;
+    columns:                     1;
+    lines:                       1;
     cycle:                       false;
     dynamic:                     true;
     scrollbar:                   false;
@@ -125,7 +128,7 @@ element {
     padding:                     15px 10px;
     border:                      0px solid;
     border-radius:               10px;
-    border-color:                @selected;
+    border-color:                transparent;
     background-color:            transparent;
     text-color:                  @foreground;
     orientation:                 vertical;
@@ -140,11 +143,12 @@ element selected.normal {
     border:                      0px 0px 0px 4px;
     border-radius:               10px;
     border-color:                @selected;
-    background-color:            @background-alt;
+    background-color:            inherit;
     text-color:                  @foreground;
 }
 element-icon {
     background-color:            transparent;
+    background-image:            url("~/new.png", width);
     text-color:                  inherit;
     size:                        64px;
     cursor:                      inherit;

@@ -3,11 +3,12 @@ import powermenu, { type Action } from "service/powermenu"
 import icons from "lib/icons"
 import options from "options"
 import type Gtk from "gi://Gtk?version=3.0"
-
 const { layout, labels } = options.powermenu
 
 const SysButton = (action: Action, label: string) => Widget.Button({
-    on_clicked: () => powermenu.action(action),
+    on_clicked: () => {
+        powermenu.action(action)
+    },
     child: Widget.Box({
         vertical: true,
         class_name: "system-button",
@@ -37,6 +38,7 @@ export default () => PopupWindow({
                     SysButton("logout", "Log Out"),
                     SysButton("reboot", "Reboot"),
                     SysButton("sleep", "Sleep"),
+                    SysButton("hyprlock", "Lock")
                 ]
                 case "box": return [
                     Widget.Box(

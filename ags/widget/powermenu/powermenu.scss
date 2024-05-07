@@ -11,14 +11,16 @@ window#verification .verification {
     min-height: 100px;
 
     .text-box {
+        color: #D7C9A4;
         margin-bottom: $spacing;
 
         .title {
+            color: #D7C9A4;
             font-size: 1.6em;
         }
 
         .desc {
-            color: transparentize($fg, 0.1);
+            color: transparentize(#D7C9A4, 0.1);
             font-size: 1.1em;
         }
     }
@@ -31,6 +33,7 @@ window#verification .verification {
             @include button;
             font-size: 1.5em;
             padding: $padding;
+            color: #D7C9A4;
         }
     }
 }
@@ -42,10 +45,12 @@ window#powermenu .powermenu {
         padding: $popover-padding * 1.5;
 
         button {
+            color: #D7C9A4;
             padding: $popover-padding;
         }
 
         label {
+            color: #D7C9A4;
             margin-bottom: $spacing * -.5;
         }
     }
@@ -54,10 +59,12 @@ window#powermenu .powermenu {
         padding: $popover-padding * 2;
 
         button {
+            color: #D7C9A4;
             padding: $popover-padding * 1.5;
         }
 
         label {
+            color: #D7C9A4;
             margin-bottom: $spacing * -1;
         }
     }
@@ -75,35 +82,39 @@ window#powermenu .powermenu {
 
         label,
         image {
-            color: transparentize($fg, 0.1);
+            color: transparentize(#D7C9A4, 0.1);
         }
 
         label {
+            color: #D7C9A4;
             margin-top: $spacing * .3;
         }
 
         &:hover {
             image {
+                color: #458588;
                 @include button-hover;
             }
 
             label {
-                color: $fg;
+                color: #458588;
             }
         }
 
         &:focus image {
+            color: #458588;
             @include button-focus;
         }
 
         &:active image {
+            color: #458588;
             @include button-active;
         }
 
         &:focus,
         &:active {
             label {
-                color: $primary-bg;
+                color: #458588;
             }
         }
     }

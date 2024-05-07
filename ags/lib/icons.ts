@@ -42,7 +42,7 @@ export default {
         toolbars: "toolbars-symbolic",
         warning: "dialog-warning-symbolic",
         avatar: "avatar-default-symbolic",
-        // test: "system-dollar-symbolic",
+        test: "▲",
         arrow: {
             right: "pan-end-symbolic",
             left: "pan-start-symbolic",
@@ -101,10 +101,11 @@ export default {
         screen: "display-brightness-symbolic",
     },
     powermenu: {
-        sleep: "weather-clear-night-symbolic",
+        sleep: "system-hibernate-symbolic",
         reboot: "system-reboot-symbolic",
         logout: "system-log-out-symbolic",
         shutdown: "system-shutdown-symbolic",
+        hyprlock: "system-suspend-symbolic"
     },
     recorder: {
         recording: "media-record-symbolic",

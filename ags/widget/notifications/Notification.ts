@@ -2,13 +2,13 @@ import { type Notification } from "types/service/notifications"
 import GLib from "gi://GLib"
 import icons from "lib/icons"
 
-const customDefaultIcon = "~/wallpapers/pfp.jpg";
 
-const time = (time: number, format = "%H:%M:%S") => GLib.DateTime
+const time = (time: number, format = "%H:%M") => GLib.DateTime
     .new_from_unix_local(time)
     .format(format)
 
 const NotificationIcon = ({ app_entry, app_icon, image }: Notification) => {
+
     if (image) {
         return Widget.Box({
             vpack: "start",

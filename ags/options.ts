@@ -179,6 +179,7 @@ const options = mkOptions(OPTIONS, {
         reboot: opt("systemctl reboot"),
         logout: opt("pkill Hyprland"),
         shutdown: opt("shutdown now"),
+        hyprlock: opt("hyprlock"),
         layout: opt<"line" | "box">("line"),
         labels: opt(true),
     },

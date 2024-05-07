@@ -25,6 +25,7 @@ $button-radius: $radius;
     background-color: $bg;
 
     .panel-button {
+        color: #D7C9A4;
         @include panel-button;
 
         &:not(.flat) {
@@ -39,7 +40,7 @@ $button-radius: $radius;
         }
 
         &:hover .colored {
-            color: $primary-bg;
+            color: #D7C9A4;
         }
 
         &:active .colored,
@@ -66,7 +67,7 @@ $button-radius: $radius;
             }
 
             &.active {
-                // background-color: $primary-bg;
+                background-color: $primary-bg;
                 background-image: $active-gradient;
                 min-width: 20pt;
                 min-height: 12pt;
@@ -90,6 +91,7 @@ $button-radius: $radius;
     }
 
     .media label {
+        color: #D7C9A4;
         margin: 0 ($spacing * .5)
     }
 
@@ -117,6 +119,7 @@ $button-radius: $radius;
     }
 
     .quicksettings>box>box {
+        color: #D7C9A4;
         @include spacing($spacing: if($bar-spacing==0, $padding / 2, $bar-spacing));
     }
 
@@ -126,7 +129,7 @@ $button-radius: $radius;
 
             label {
                 font-size: $font-size * .7;
-                color: $fg;
+                color: #458588;
                 text-shadow: $text-shadow;
             }
         }

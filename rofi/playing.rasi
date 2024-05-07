@@ -1,0 +1,147 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    font:                        "SpaceMono Nerd Font 10";
+    background:                  #131D1F;
+    background-alt:              #183A43;
+    foreground:                  #FFFFFF;
+    selected:                    #749C63;
+    active:                      #E9CC9D;
+    urgent:                      #FEA861;
+}
+
+/*
+USE_ICON=YES
+*/
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    fullscreen:                  false;
+    height:                      250px;
+    width:                       420px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    margin:                      0px;
+    padding:                     2px;
+    border:                      2px solid;
+    border-radius:               40px;
+    border-color:                @selected;
+    cursor:                      "default";
+    background-color:            @background;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0px;
+    padding:                     20px;
+    background-color:            transparent;
+    background-image:            url("~/tmp.png", width);
+    children:                    [ "listview","inputbar" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     25px;
+    padding:                     60px;
+    width:                       20px;
+    border:                      0px;
+    border-radius:               10px;
+    border-color:                @urgent;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "dummy"];
+}
+
+dummy{
+    background-color:            transparent;
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     5px;
+    border:                      0px solid;
+    border-radius:               100%;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     6;
+    lines:                       1;
+    cycle:                       true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    
+    spacing:                     20px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     10px 10px;
+    border:                      0px solid;
+    border-radius:               100%;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  #B4CD8C;
+    cursor:                      pointer;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  #D7C9A4;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:            var(background-alt);
+    text-color:                  var(foreground);
+}
+element normal.urgent,
+element alternate.urgent,
+element selected.active {
+    background-color:            var(urgent);
+    text-color:                  var(background);
+}
+element normal.active,
+element alternate.active,
+element selected.urgent {
+    background-color:            var(active);
+    text-color:                  var(background);
+}
+element selected.normal {
+    background-color:            var(selected);
+    text-color:                  var(background);
+}

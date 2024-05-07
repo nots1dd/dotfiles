@@ -1,8 +1,8 @@
 import options from "options"
 
-const { sleep, reboot, logout, shutdown } = options.powermenu
+const { sleep, reboot, logout, shutdown, hyprlock } = options.powermenu
 
-export type Action = "sleep" | "reboot" | "logout" | "shutdown"
+export type Action = "sleep" | "reboot" | "logout" | "shutdown" | "hyprlock"
 
 class PowerMenu extends Service {
     static {
@@ -24,6 +24,7 @@ class PowerMenu extends Service {
             reboot: [reboot.value, "Reboot"],
             logout: [logout.value, "Log Out"],
             shutdown: [shutdown.value, "Shutdown"],
+            hyprlock: [hyprlock.value, "Lock"]
         }[action]
 
         this.notify("cmd")

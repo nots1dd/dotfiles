@@ -6,6 +6,7 @@
 
     calendar {
         all: unset;
+        color: #D7C9A4;
 
         &.button {
             @include button($flat: true);
@@ -20,7 +21,7 @@
         &.header {
             background-color: transparent;
             border: none;
-            color: transparentize($fg, 0.5);
+            color: #458588;
         }
 
         &.highlight {
@@ -44,6 +45,7 @@ window#datemenu .datemenu {
         .header {
             margin-bottom: $spacing;
             margin-right: $spacing;
+            color: #D7C9A4;
 
             >label {
                 margin-left: $radius * .5;
@@ -96,6 +98,7 @@ window#datemenu .datemenu {
         padding: $padding;
 
         .clock {
+            color: #D7C9A4;
             font-size: 3.5em;
         }
         .clock_mini {
@@ -104,7 +107,7 @@ window#datemenu .datemenu {
         }
 
         .uptime {
-            color: transparentize($fg, 0.2);
+            color: transparentize(#D7C9A4, 0.2);
         }
     }
 
