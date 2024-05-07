@@ -39,15 +39,15 @@ launch_rofi() {
 show_message() {
     play=$(playerctl status 2>/dev/null)
     if [ "$play" = "Playing" ]; then
+    killall rofi # kills the previous instance of rofi before displaying (more than 1 rofi cannot work anyway so it will not interfere with other scripts dw)
     echo " ⏵  $1" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
+    rofi_pid=$!
+    sleep 2
+    kill "$rofi_pid"
     fi
     if [ "$play" = "Paused" ]; then
     echo " ⏸  $1" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
     fi
-
-    rofi_pid=$!
-    sleep 2
-    kill "$rofi_pid"
 }
 
 # Function to clean up temporary directory
