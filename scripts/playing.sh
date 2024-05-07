@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi='/home/s1dd/dotfies/rofi/playing.rasi'
+rofi='/home/s1dd/dotfiles/rofi/playing.rasi'
 # Function to send notification using notify-send
 send_notification() {
     notify-send "Now Playing" "$1"
@@ -10,7 +10,7 @@ send_notification() {
 control_playerctl() {
     playerctl_status=$(playerctl status 2>/dev/null)
     if [ "$playerctl_status" = "Playing" ] || [ "$playerctl_status" = "Paused" ]; then
-        playerctl metadata --format "$playerctl_status :: {{title}} - {{artist}}"
+        playerctl metadata --format "{{title}} - {{artist}}"
     fi
 }
 
@@ -37,12 +37,14 @@ launch_rofi() {
     echo "Launching Rofi with background image..."
 }
 show_message() {
-    if [ "$playerctl_status" = "Paused" ]; then
-        message="Paused"
-    else
-        message="$1"
+    play=$(playerctl status 2>/dev/null)
+    if [ "$play" = "Playing" ]; then
+    echo " ⏵  $1" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
     fi
-    echo "$message" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
+    if [ "$play" = "Paused" ]; then
+    echo " ⏸  $1" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
+    fi
+
     rofi_pid=$!
     sleep 2
     kill "$rofi_pid"
@@ -85,10 +87,10 @@ while true; do
             cover_success
             copy_to_tmp "$cover_image"
             prev_song="$song_info"
-            cleanup_temp_dir "$(dirname "$cover_image")"
             launch_rofi
             show_message "$artist - $song_name" # need to kill after 2 secs
             echo "SCAN DONE CHECK ~/tmp.png!"
+            cleanup_temp_dir "$(dirname "$cover_image")"
             success
             cd - >/dev/null || exit 1
         fi
@@ -98,3 +100,7 @@ while true; do
     # Delay before checking again
     sleep 1
 done
+
+## NOTE:
+# If ffmpeg is not able to extract the image (thumbnail might not exist), it will return an error "Output stream not found"
+# ^^ this leads to the BACKGROUND IMAGE STAYING THE SAME, modify it as you wish to show that there was an error but for me this was NOT a big deal
