@@ -54,6 +54,7 @@ window#datemenu .datemenu {
             button {
                 @include button;
                 padding: $padding*.7 $padding;
+                color: #D7C9A4;
             }
         }
 
@@ -92,6 +93,7 @@ window#datemenu .datemenu {
 
     .datemenu {
         @include spacing;
+        color: #D7C9A4;
     }
 
     .clock-box {

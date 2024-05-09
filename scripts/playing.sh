@@ -1,3 +1,5 @@
+# written by nots1dd
+
 #!/bin/bash
 
 rofi='/home/s1dd/dotfiles/rofi/playing.rasi'

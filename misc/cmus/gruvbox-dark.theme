@@ -4,7 +4,7 @@ set color_cmdline_bg=235
 set color_cmdline_fg=142
 set color_error=196
 set color_info=241
-set color_separator=241
+set color_separator=066
 
 set color_statusline_bg=066
 set color_statusline_fg=234
@@ -17,28 +17,28 @@ set color_titleline_bg=234
 
 # Normal text in window
 set color_win_bg=default
-set color_win_fg=230
+set color_win_fg=249
 #set color_win_fg=247
 
 # Color of currently playing track
-set color_win_cur=214
-# set color_win_cur=136
+# set color_win_cur=214
+set color_win_cur=136
 
 set color_win_dir=247
 
 # Color of currently playig when selected
 # --- Active window
-set color_win_cur_sel_bg=234
-set color_win_cur_sel_fg=142
+set color_win_cur_sel_bg=96
+set color_win_cur_sel_fg=236
 # --- Inactive window
-set color_win_inactive_cur_sel_bg=235
+set color_win_inactive_cur_sel_bg=234
 set color_win_inactive_cur_sel_fg=142
 
 # Color of selected non-playing
 # --- Active window
-set color_win_sel_bg=234
-# set color_win_sel_fg=142
-set color_win_sel_fg=109
+set color_win_sel_bg=066
+# set color_win_sel_fg=236
+set color_win_sel_fg=236
 # --- Inactive window
 set color_win_inactive_sel_bg=235
 # set color_win_inactive_sel_fg=142

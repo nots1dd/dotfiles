@@ -13,15 +13,18 @@
             margin-right: $spacing;
             color: $fg;
             font-size: 1.1em;
+            color: #D7C9A4;
         }
 
         .time {
             color: transparentize($fg, .2);
+            color: #D7C9A4;
         }
 
         .description {
             font-size: .9em;
             color: transparentize($fg, .2);
+            color: #D7C9A4;
         }
 
         .icon {
