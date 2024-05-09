@@ -1,18 +1,17 @@
-### Blue-Gruvbox Theme by nots1dd
-### Insipired by Emil Rivera-Thorsen
+### Gruvbox-dark theme by nots1dd
+
 set color_cmdline_bg=235
 set color_cmdline_fg=142
 set color_error=196
 set color_info=241
-set color_separator=066
+set color_separator=065
 
-set color_statusline_bg=066
+set color_statusline_bg=065
 set color_statusline_fg=234
 
 # Color of window titles (topmost line of the screen).
 # set color_titleline_bg=default
-set color_titleline_fg=066
-# set color_titleline_fg=108
+set color_titleline_fg=065
 set color_titleline_bg=234
 
 # Normal text in window
@@ -22,7 +21,7 @@ set color_win_fg=249
 
 # Color of currently playing track
 # set color_win_cur=214
-set color_win_cur=136
+set color_win_cur=065
 
 set color_win_dir=247
 
@@ -41,15 +40,15 @@ set color_win_sel_bg=066
 set color_win_sel_fg=236
 # --- Inactive window
 set color_win_inactive_sel_bg=235
-# set color_win_inactive_sel_fg=142
-set color_win_inactive_sel_fg=109
+set color_win_inactive_sel_fg=136
 
 # Top bar colors. Make them pang!
-set color_win_title_bg=066
+set color_win_title_bg=065
 set color_win_title_fg=234
 ### }}}
 
-# Colors to use, 
+# Colors to use (Note: All these are NOT tested),
+# I am using 065,066 for most of the colors as they are a gruvbox like green and blue 
 # from official Gruvbox 
 # terminal Vim theme.
 # View them in e.g. 
