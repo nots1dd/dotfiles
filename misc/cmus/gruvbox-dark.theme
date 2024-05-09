@@ -1,5 +1,5 @@
-### 'MyGruvbox' theme for CMus (for 255 color terms)
-### (C) 2020 Emil Rivera-Thorsen
+### Blue-Gruvbox Theme by nots1dd
+### Insipired by Emil Rivera-Thorsen
 set color_cmdline_bg=235
 set color_cmdline_fg=142
 set color_error=196
