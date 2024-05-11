@@ -83,7 +83,7 @@ class Recorder extends Service {
 
         Utils.notify({
             image: file,
-            summary: "Screenshot",
+            summary: "Screenshot taken!",
             body: file,
             actions: {
                 "Show in Files": () => sh(`dolphin --platformtheme kde ${this.#screenshots}`), // Open Dolphin in the directory

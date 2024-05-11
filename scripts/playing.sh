@@ -5,7 +5,9 @@
 rofi='/home/s1dd/dotfiles/rofi/playing.rasi'
 # Function to send notification using notify-send
 send_notification() {
-    notify-send "Now Playing" "$1"
+    notif=$(dunstify "Now Playing" "$1" --icon=/home/s1dd/tmp.png --timeout=4000 -p)
+    sleep 4
+    dunstify -C $notif # you can not do this if you want but i dont like the notification staying
 }
 
 # Function to control playerctl
@@ -35,22 +37,22 @@ copy_to_tmp() {
     # echo "Resized image to ~/new.png!"
 }
 
-launch_rofi() {
-    echo "Launching Rofi with background image..."
-}
-show_message() {
-    play=$(playerctl status 2>/dev/null)
-    if [ "$play" = "Playing" ]; then
-    killall rofi # kills the previous instance of rofi before displaying (more than 1 rofi cannot work anyway so it will not interfere with other scripts dw)
-    echo " ⏵  $1" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
-    rofi_pid=$!
-    sleep 2
-    kill "$rofi_pid"
-    fi
-    if [ "$play" = "Paused" ]; then
-    echo " ⏸  $1" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
-    fi
-}
+# launch_rofi() {
+#     echo "Launching Rofi with background image..."
+# }
+# show_message() {
+#     play=$(playerctl status 2>/dev/null)
+#     if [ "$play" = "Playing" ]; then
+#     # killall rofi # kills the previous instance of rofi before displaying (more than 1 rofi cannot work anyway so it will not interfere with other scripts dw)
+#     # echo " ⏵  $1" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
+#     # rofi_pid=$!
+#     # sleep 2
+#     # kill "$rofi_pid"
+#     fi
+#     # if [ "$play" = "Paused" ]; then
+#     # echo " ⏸  $1" | rofi -location 1 -xoffset 1024 -yoffset 520 -dmenu -theme "$rofi" &
+#     # fi
+# }
 
 # Function to clean up temporary directory
 cleanup_temp_dir() {
@@ -79,7 +81,7 @@ while true; do
     if [ -n "$playerctl_status" ]; then
         song_info=$(control_playerctl)
         player_status=$(playerctl status 2>/dev/null)
-        if [ -n "$song_info" ] && ([ "$song_info" != "$prev_song" ] || [ "$player_status" != "$prev_status" ]); then
+        if [ -n "$song_info" ] && ([ "$song_info" != "$prev_song" ] ); then #|| [ "$player_status" != "$prev_status" ]); then
             # send_notification "$song_info"
             artist=$(echo "$song_info" | awk -F ' - ' '{print $1}')
             song_name=$(echo "$song_info" | awk -F ' - ' '{print $2}')
@@ -89,8 +91,9 @@ while true; do
             cover_success
             copy_to_tmp "$cover_image"
             prev_song="$song_info"
-            launch_rofi
-            show_message "$artist - $song_name" # need to kill after 2 secs
+            # launch_rofi
+            # show_message "$artist - $song_name" # need to kill after 2 secs
+            send_notification "$song_info"
             echo "SCAN DONE CHECK ~/tmp.png!"
             cleanup_temp_dir "$(dirname "$cover_image")"
             success

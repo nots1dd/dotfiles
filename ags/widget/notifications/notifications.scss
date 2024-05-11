@@ -5,24 +5,23 @@
 
     &:hover button.close-button {
         @include button-hover;
-        background-color: transparentize($error-bg, .5);
+        background-color: transparentize(#CC241D, .5);
     }
 
     .content {
         .title {
             margin-right: $spacing;
-            color: $fg;
-            font-size: 1.1em;
-            color: #D7C9A4;
+            color: #689D6A;
+            font-size: 1.2em;
         }
 
         .time {
-            color: transparentize($fg, .2);
+            color: transparentize(#D7C9A4, .2);
             color: #D7C9A4;
         }
 
         .description {
-            font-size: .9em;
+            font-size: 1.0em;
             color: transparentize($fg, .2);
             color: #D7C9A4;
         }
@@ -55,14 +54,15 @@
         border-radius: $radius*0.8;
         min-width: 1.2em;
         min-height: 1.2em;
+        color: #689D6A;
 
         &:hover {
-            background-color: transparentize($error-bg, .2);
+            background-color: transparentize(#CC241D, .4);
         }
 
         &:active {
             background-image: none;
-            background-color: $error-bg;
+            background-color: #CC241D;
         }
     }
 }

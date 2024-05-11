@@ -46,7 +46,7 @@ echo "$charging_state"
 
 # Check battery level and send notification if below 20%
 if [ "$current_level" -eq 100 ] && [ "$charging_state" == "Full" ]; then
-notify-send "Fully-charged!"
+notify-send "Fully-charged!" --icon=/home/s1dd/battery.png --expire-time=5000
 else
  if [ "$current_level" -lt 20 ] && [ "$charging_state" != "Charging" ]; then
   # Ensure notify-send is installed (optional, comment out if not needed)
@@ -57,10 +57,15 @@ else
   # Customize notification message and icon path (if desired)
   # echo "$current_level" && echo "$charging_state"
   brightnessctl set 30%-
-  notify-send "$current_level% :: LOW BATTERY!"
+  notify-send "$current_level% :: LOW BATTERY!" --icon=/home/s1dd/battery.png --expire-time=5000 --urgency=critical #in ms
 else
   # Battery level is normal (above 20%)
   # echo "$current_level"
   echo "$current_level% :: $charging_state. Enjoy your freedom!"
  fi
 fi
+
+
+# this script is a very general script that should be usable for any local machine willing to execute it
+# in theory, you can just cat the battery percentage and then an if statement is enough
+# but this script is lengthy as it checks for existing bat file and performs checks before executing any command
