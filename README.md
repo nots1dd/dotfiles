@@ -7,19 +7,22 @@
 4. Shell -> `zsh`
 5. Package Manager -> `yay`
 6. Audio -> `pipewire-jack`
+7. Font -> `SpaceMono Nerd Font`
 
 ## Current Config is using:
 
 1. Hyprland
 2. Hyprlock
-3. swww (wallpaper daemon)
-4. wlogout
-5. ags {waybar is **OUTDATED**}
-6. swaync {**OUTDATED**}
-7. dunst (notif daemon) { **OUTDATED** }
-8. satty
-9. rofi-lboon-wayland
-10. cliphlist (and wl-clipboard-history-git)
+3. Hypridle
+4. swww (wallpaper daemon)
+5. wlogout {**OUTDATED**}
+6. ags {waybar is **OUTDATED**}
+7. swaync {**OUTDATED**}
+8. dunst (notif daemon)
+9. satty
+10. rofi-lboon-wayland
+11. wf-recorder
+12. cliphlist (and wl-clipboard-history-git)
 
 ## Other Configs:
 1. Terminal -> `kitty` [AUR package]
