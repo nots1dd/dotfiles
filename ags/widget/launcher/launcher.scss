@@ -10,6 +10,7 @@ window#launcher .launcher {
         button {
             @include button($flat: true);
             padding: $padding;
+            color: #D5D0C2;
         }
     }
 
@@ -17,15 +18,16 @@ window#launcher .launcher {
         @include button;
         padding: $padding;
         margin: $spacing;
+        color: #BBB574;
 
         selection {
-            color: color.mix($fg, $bg, 50%);
+            color: #D5D0C2;
             background-color: transparent;
         }
 
         label,
         image {
-            color: $fg;
+            color: #BBB574;
         }
     }
 
@@ -48,12 +50,13 @@ window#launcher .launcher {
 
         transition: $transition;
         padding: $padding;
+        color: #D5D0C2;
 
         label {
             transition: $transition;
 
             &.title {
-                color: $fg;
+                color: #B0CB85;
             }
 
             &.description {

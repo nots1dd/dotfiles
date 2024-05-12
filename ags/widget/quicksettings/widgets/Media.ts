@@ -25,7 +25,7 @@ const Player = (player: MprisPlayer) => {
         ], (path, url, size) => `
             min-width: ${size}px;
             min-height: ${size}px;
-            background-image: url("${path || url || '/home/s1dd/wallpapers/wal19.png'}");
+            background-image: url("${path || url || '/home/s1dd/tmp.png'}");
         `),
     })
 

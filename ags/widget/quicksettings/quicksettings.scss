@@ -19,6 +19,7 @@ window#quicksettings .quicksettings {
 
             image {
                 font-size: 1.4em;
+                color: #D6C8A3;
             }
         }
     }
@@ -172,6 +173,7 @@ window#quicksettings .quicksettings {
 
         .player {
             @include media;
+            color: #D6C8A3;
         }
     }
 }

@@ -13,7 +13,7 @@ class Weather extends Service {
     get forecasts() { return this.#forecasts }
 
     async #fetch(placeid: number) {
-        const url = "https://api.openweathermap.org/data/2.5/forecast"
+        const url = "https://api.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=0bcd590b836c95a0398ffee7c3b32f28"
         const res = await Utils.fetch(url, {
             params: {
                 id: placeid,

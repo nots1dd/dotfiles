@@ -156,12 +156,12 @@ const options = mkOptions(OPTIONS, {
                 [
                     "floorp",
                     "kitty",
-                    "kate",
+                    "dolphin",
                     "obsidian",
                     "discord",
                     "spotify",
                     "btop",
-                    "ModelSim-Intel FPGA Starter Edition",
+                    // "ModelSim-Intel FPGA Starter Edition",
                     "systemsettings"
                 ],
             ]),
