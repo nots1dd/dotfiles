@@ -14,7 +14,7 @@ send_notification() {
 control_playerctl() {
     playerctl_status=$(playerctl status 2>/dev/null)
     if [ "$playerctl_status" = "Playing" ] || [ "$playerctl_status" = "Paused" ]; then
-        playerctl metadata --format "{{title}} - {{artist}}"
+        playerctl metadata --format "{{title}} - {{artist}}" -i firefox
     fi
 }
 
