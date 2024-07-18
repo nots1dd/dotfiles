@@ -6,7 +6,7 @@ import { Brightness } from "./widgets/Brightness"
 import { NetworkToggle, WifiSelection } from "./widgets/Network"
 import { BluetoothToggle, BluetoothDevices } from "./widgets/Bluetooth"
 import { DND } from "./widgets/DND"
-import { DarkModeToggle } from "./widgets/DarkMode"
+import { WallpaperToggle } from "./widgets/DarkMode"
 import { MicMute } from "./widgets/MicMute"
 import { Media } from "./widgets/Media"
 import PopupWindow from "widget/PopupWindow"
@@ -55,11 +55,11 @@ const Settings = () => Widget.Box({
             [NetworkToggle, BluetoothToggle],
             [WifiSelection, BluetoothDevices],
         ),
-        Row(
-            [ProfileToggle, DarkModeToggle],
-            [ProfileSelector],
-        ),
-        Row([MicMute, DND]),
+        // Row(
+        //     [ProfileToggle, WallpaperToggle],
+        //     // [ProfileSelector],
+        // ),
+        Row([WallpaperToggle, DND]),
         Widget.Box({
             visible: media.as(l => l.length > 0),
             child: Media(),

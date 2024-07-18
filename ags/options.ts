@@ -90,7 +90,7 @@ const options = mkOptions(OPTIONS, {
         launcher: {
             icon: {
                 colored: opt(true),
-                icon: opt(icon(icons.app.terminal)),
+                icon: opt(icon(icons.asusctl.mode.Hybrid)),
             },
             label: {
                 colored: opt(false),
