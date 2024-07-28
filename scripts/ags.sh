@@ -1,7 +1,7 @@
 #!/bin/bash
 
 show_msg() {
-    rofi -e "$1" -theme "/home/s1dd/Downloads/rofi/files/launchers/type-3/style-5.rasi"
+    rofi -e "$1" -theme "~/dotfiles/rofi/wals/wal-config.rasi"
 }
 
 

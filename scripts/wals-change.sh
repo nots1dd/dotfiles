@@ -9,9 +9,11 @@ show_message() {
     kill "$rofi_pid"
 }
 
-cd /home/$USER/wallpapers
+wallpaper_dir="/home/$USER/wallpapers"
 
-selected=$(ls | rofi -dmenu -theme "$theme")
+cd "$wallpaper_dir"
+
+selected=$(ls -p *.png *.jpg *.gif | tail -n 38 | rofi -dmenu -theme "$theme")
 echo "$selected"
 
 if [ -z "$selected" ]; then
@@ -21,9 +23,11 @@ fi
 
 if [[ "$selected" == *"gif" ]]; then
   # Set hyprlock.conf for GIF wallpaper
-  sed -i "s|path=.*|path=/home/$USER/wallpapers/wal3.png|" /home/$USER/.config/hypr/hyprlock.conf
+  png_path="/home/$USER/wallpapers/lockscreen.png"
+  ffmpeg -y -i "/home/$USER/wallpapers/$selected" "$png_path"
+  sed -i "s|path=.*|path=$png_path|" /home/$USER/.config/hypr/hyprlock.conf
   swww img "/home/$USER/wallpapers/$selected" --transition-type random --transition-step 1 --transition-duration 2
-  show_message "Success :: wallpaper changed to $selected : Hyprlock wal set to wal3.png" -theme "$theme"
+  show_message "Success :: wallpaper changed to $selected : Hyprlock wal set to lockscreen.png" -theme "$theme"
 elif [[ "$selected" == *"jpg" ]]; then
   # Convert JPG to PNG and set as lockscreen wallpaper
   png_path="/home/$USER/wallpapers/lockscreen.png"
