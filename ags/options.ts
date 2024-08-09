@@ -70,12 +70,13 @@ const options = mkOptions(OPTIONS, {
             start: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "launcher",
                 "workspaces",
-                "date",
                 "expander",
                 "messages",
             ]),
             center: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "media",
+                "date",
+
             ]),
             end: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "expander",
@@ -99,7 +100,7 @@ const options = mkOptions(OPTIONS, {
             action: opt(() => App.toggleWindow("launcher")),
         },
         date: {
-            format: opt("%A :: %H:%M"),
+            format: opt("%A :: %H:%M:%S"),
             action: opt(() => App.toggleWindow("datemenu")),
         },
         battery: {
@@ -157,11 +158,9 @@ const options = mkOptions(OPTIONS, {
                     "floorp",
                     "kitty",
                     "dolphin",
-                    "obsidian",
                     "discord",
                     "spotify",
                     "btop",
-                    // "ModelSim-Intel FPGA Starter Edition",
                     "systemsettings"
                 ],
             ]),
@@ -177,7 +176,7 @@ const options = mkOptions(OPTIONS, {
     powermenu: {
         sleep: opt("systemctl suspend"),
         reboot: opt("systemctl reboot"),
-        logout: opt("pkill Hyprland"),
+        logout: opt("hyprctl dispatch exit"),
         shutdown: opt("shutdown now"),
         hyprlock: opt("hyprlock"),
         layout: opt<"line" | "box">("line"),

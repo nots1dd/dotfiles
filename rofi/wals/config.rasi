@@ -1,0 +1,14 @@
+
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+/* Main Config 1080p */
+
+@import "/home/s1dd/dotfiles/rofi/wals/master-config.rasi" 
+
+/* ---- Configuration ---- */
+configuration {
+	font: "Fira Code SemiBold 12";
+}
+
+element-text {
+    font:	"Fira Code SemiBold 14";
+}

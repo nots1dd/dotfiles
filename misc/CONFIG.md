@@ -2,7 +2,7 @@
 
 1. `BTOP -> gruvbox theme`
 
-2. `superfile (https://github.com/MHNightCat/superfile/tree/v1.0.0) -> default gruvbox theme`
+2. `superfile (https://github.com/MHNightCat/superfile/tree/v1.0.0) -> default gruvbox theme` (Now using `ranger` and `LiteFM`)
 
 3. `spotify-launcher (with spicetify) -> text (by darkthemer) {looks the most gruvbox sptui like}`
 
