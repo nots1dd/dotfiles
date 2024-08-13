@@ -1,90 +1,86 @@
 #!/bin/bash
 
-source /home/s1dd/dotfiles/keys.sh # create your own keys.sh with YOUR OWN API KEY to use this script (you cant have mine sorry)
+# Source your API key from an external file
+source /home/s1dd/dotfiles/scripts/keys.sh
 
-# Define the API endpoint and your API key
+# Define constants
 API_ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=$API_KEY"
-theme="~/dotfiles/rofi/launchers/type-4/style-1.rasi"
-newtheme="~/dotfiles/rofi/aiClipboard/ai-clipboard-config.rasi"
+THEME="~/dotfiles/rofi/launchers/type-4/style-1.rasi"
+NEWTHEME="~/dotfiles/rofi/aiClipboard/ai-clipboard-config.rasi"
+PROMPT_ICON=" GEMINI ::"
+EXIT_MESSAGE="Exiting without any prompts.."
+MESSAGE_DURATION=1  # Duration to display messages
 
+# Function to display messages using Rofi
 show_message() {
-    rofi -e "$1" -theme "$newtheme" &
+    rofi -e "$1" -theme "$NEWTHEME" &
     rofi_pid=$!
-    sleep 1
+    sleep $MESSAGE_DURATION
     kill "$rofi_pid"
 }
 
-# If you want a more descriptive rofi
+# Function to send request to Gemini API and process the response
+get_response() {
+    local prompt_text="$1"
+    curl -s -H 'Content-Type: application/json' \
+         -d "{\"contents\":[{\"parts\":[{\"text\":\"$prompt_text\"}]}]}" \
+         -X POST "$API_ENDPOINT"
+}
 
-# show_intro() {
-#     rofi -e "$1" -theme "$theme" &
-#     rofi_pid=$!
-#     sleep 2
-#     kill "$rofi_pid"
-# }
-
-# intro=$(show_intro "GEMINI AI:
-# Note :: This is only a one prompt function, history and conversations do not work!")
-
-while true; do
-    # Show input text field using Rofi
-    prompt_text=$(rofi -dmenu -p " GEMINI ::" -theme "$newtheme")
-
-    # exiting with escape keybind
-    if [ $? -ne 0 ]; then
-        show_message "Exiting without any prompts.."
-        break
-    fi
-
-    # Send request to Gemini API using curl
-    response=$(curl -s -H 'Content-Type: application/json' -d "{\"contents\":[{\"parts\":[{\"text\":\"$prompt_text\"}]}]}" -X POST "$API_ENDPOINT")
-
-    # Extract text output from the JSON response and limit the number of lines
-    text=$(echo "$response" | jq -r '.candidates[0].content.parts[0].text')
-    text_output=$(echo "$text" | head -n 15) # can change 25 to any value as you choose, more than 40 can clutter your screen
-
-    # Display the text output using Rofi
+# Function to extract and display the response in Rofi
+display_response() {
+    local response="$1"
+    local text=$(echo "$response" | jq -r '.candidates[0].content.parts[0].text')
+    local text_output=$(echo "$text" | head -n 15)
     echo "$text_output" | rofi -e "𐓙  GEMINI:
+.....
+
 
 $text_output
 
 .....
-For more output, click Copy and Quit in the menu!" -theme "$newtheme"
+For more output, click Copy and Quit in the menu!" -theme "$NEWTHEME"
+}
 
-    # Prompt user to continue or quit
-#     continue_prompt=$(echo -e "Continue\nQuit" | rofi -dmenu -p "1. Start new prompt {any key}
-# 2. Quit without copying {q!}
-# 3. Quit with copying the latest conversation {wq}" -theme "$theme")
+# Main loop
+while true; do
+    # Display input prompt using Rofi
+    prompt_text=$(rofi -dmenu -p "$PROMPT_ICON" -theme "$NEWTHEME")
 
-#     # Check user's choice
-#     if [ "$continue_prompt" == "q!" ]; then
-#         show_message "Exiting without copying!"
-#         break
-#     elif [ "$continue_prompt" == "wq" ]; then
-#         echo "$text" | wl-copy --trim-newline
-#         show_message "Copied to clipboard! Exiting!!"
-#         break
-#     fi
-    continue=$(echo "Continue" )
-    copyquit=$(echo "Copy and Quit")
-    quit=$(echo "Quit")
-    action="$continue\n$copyquit\n$quit"
-    chosen="$(echo -e $action | rofi -dmenu -p "GEMINI MENU ::" -no-fixed-num-lines -yoffset -100 -i -theme $newtheme)"
+    # Check if the user exited with the escape key
+    if [ $? -ne 0 ]; then
+        show_message "$EXIT_MESSAGE"
+        break
+    fi
 
-    # Check user's action
-    case "$chosen" in
-        "$continue")
+    # Get and display the response from the Gemini API
+    response=$(get_response "$prompt_text")
+    display_response "$response"
+
+    # Prompt user for next action
+    action=$(echo -e "Continue\nCopy and Quit\nQuit (esc)" | rofi -dmenu -p "GEMINI MENU ::" -no-fixed-num-lines -yoffset -100 -i -theme "$NEWTHEME")
+    
+    # to kill rofi by pressing escape
+    if [ $? -ne 0 ]; then
+        show_message "$EXIT_MESSAGE"
+        break
+    fi
+    # Handle user's choice
+    case "$action" in
+        "Continue")
             show_message "Redirecting.."
             ;;
-        "$copyquit")
+        "Copy and Quit")
             echo "$text" | wl-copy --trim-newline
             show_message "Copied to clipboard! Exiting!!"
             break
             ;;
-        "$quit")
+        "Quit")
             show_message "Exiting without copying!"
             break
+            ;; 
+        *)
+            show_message "Invalid selection! Please try again."
             ;;
     esac
 done
-

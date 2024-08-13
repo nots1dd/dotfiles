@@ -26,3 +26,5 @@ update_label() {
 
 # Update only the battery Unicode in the label when charging
 update_label
+
+# THIS IS SORT OF OUTDATED MIGHT INTEGRATE LATER

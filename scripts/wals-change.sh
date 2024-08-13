@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# Script for selecting wallpapers (SUPER W)
+# Script for selecting wallpapers (SUPER R)
 
 # WALLPAPERS PATH
 wallDIR="$HOME/wallpapers"
 configDir="$HOME/dotfiles/rofi/wals/config-wallpaper.rasi"
 png_path="$wallDIR/lockscreen.png"
 theme="$HOME/dotfiles/rofi/wals/wal-config.rasi"
+wallpaper="$HOME/wallpapers/.currentwal.png"
 
 # Function to display a temporary message with rofi
 show_message() {
@@ -17,6 +18,7 @@ show_message() {
 }
 
 # Function to set Hyprlock wallpaper based on the selected wallpaper
+# Was previously using sed to manually change hyprlock.conf, but now for simplicity, i set up a .currentwal.png in my walls dir
 hyprlockSet() {
   if [[ "$selected" == *"gif" ]]; then
     # Set hyprlock.conf for GIF wallpaper
@@ -27,13 +29,15 @@ hyprlockSet() {
   elif [[ "$selected" == *"jpg" ]]; then
     # Convert JPG to PNG and set as lockscreen wallpaper
     ffmpeg -y -i "$selected" "$png_path"
-    sed -i "s|path=.*|path=$png_path|" /home/$USER/.config/hypr/hyprlock.conf
-    swww img "$selected" --transition-type random --transition-step 1 --transition-duration 2
+    # sed -i "s|path=.*|path=$png_path|" /home/$USER/.config/hypr/hyprlock.conf
+    cp "$png_path" "$wallpaper"
+    swww img "$wallpaper" --transition-type random --transition-step 1 --transition-duration 2
     show_message "Success :: wallpaper changed to $selected : Hyprlock wal set to lockscreen.png" -theme "$theme"
   else
     # Set hyprlock.conf for non-GIF, non-JPG wallpaper
-    sed -i "s|path=.*|path=$selected|" /home/$USER/.config/hypr/hyprlock.conf
-    swww img "$selected" --transition-type random --transition-step 1 --transition-duration 2
+    # sed -i "s|path=.*|path=$selected|" /home/$USER/.config/hypr/hyprlock.conf
+    cp "$selected" "$wallpaper"
+    swww img "$wallpaper" --transition-type random --transition-step 1 --transition-duration 2
     show_message "Success :: wallpaper changed to $selected!" -theme "$theme"
   fi
 }
@@ -56,8 +60,6 @@ fi
 # Retrieve image files using null delimiter to handle spaces in filenames
 mapfile -d '' PICS < <(find "${wallDIR}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0)
 
-RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
-RANDOM_PIC_NAME=". random"
 
 # Rofi command
 rofi_command="rofi -i -show -dmenu -config $configDir"
@@ -67,8 +69,6 @@ menu() {
   # Sort the PICS array
   IFS=$'\n' sorted_options=($(sort <<<"${PICS[*]}"))
   
-  # Place ". random" at the beginning with the random picture as an icon
-  printf "%s\x00icon\x1f%s\n" "$RANDOM_PIC_NAME" "$RANDOM_PIC"
   
   for pic_path in "${sorted_options[@]}"; do
     pic_name=$(basename "$pic_path")
