@@ -6,9 +6,9 @@
 
 /* ---- Configuration ---- */
 configuration {
-	font: "Fira Code SemiBold 12";
+	font: "SpaceMono Nerd Font Bold 12";
 }
 
 element-text {
-    font:	"Fira Code SemiBold 14";
+    font:	"SpaceMono Nerd Font Bold 14";
 }

@@ -1,6 +1,3 @@
-/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
-/* Main Config (wallpaper) */
-
 @import "/home/s1dd/dotfiles/rofi/wals/config.rasi" 
 
 /* ---- Configuration ---- */ 
@@ -22,7 +19,7 @@ imagebox {
 
 entry {
   expand: false;
-  placeholder: "🎞️ Choose Wallpaper";
+  placeholder: "Pick one";
 }
 
 /* ---- Listview ---- */
@@ -44,7 +41,7 @@ element-icon {
 }
 
 element-text {
-  font: "Fira Code SemiBold 12";
+  font: "SpaceMono Nerd Font Bold 12";
   vertical-align: 0.5;
   horizontal-align: 0.5;
 }

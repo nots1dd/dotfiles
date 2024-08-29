@@ -17,7 +17,7 @@ configuration {
 @import                          "/home/s1dd/dotfiles/rofi/aiClipboard/ai-theme.rasi"
 
 * {
-    font: "SpaceMonoNerd Font Bold 11";
+    font: "SpaceMono Nerd Font Bold 11";
 }
 
 * {

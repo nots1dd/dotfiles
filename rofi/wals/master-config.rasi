@@ -19,7 +19,7 @@ configuration {
 
 /* ---- Global Properties ---- */
 * {
-    font: "SpaceMonoNerd Font Bold 11";
+    font: "SpaceMono Nerd Font Bold 11";
 }
 
 * {
