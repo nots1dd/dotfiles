@@ -22,3 +22,18 @@ gitc() {
     fi
 }
 
+gita() {
+    selected_files=$(git status -s | awk '{print $2}' | gum choose --no-limit --header "Select files to add" --placeholder "Choose files" --cursor.foreground=99)
+    
+    if [ -z "$selected_files" ]; then
+        gum style --foreground 196 "No files selected."
+    else
+        echo "$selected_files" | xargs git add
+        gum style --foreground 118 "Files added successfully!"
+    fi
+}
+
+gita.() {
+  git add .
+}
+
