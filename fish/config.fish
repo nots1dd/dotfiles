@@ -50,9 +50,20 @@ alias playultra="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Build\ 14344
 alias lg=lazygit
 alias cat=bat
 alias :q=exit
+alias nvim="~/dotfiles/scripts/neovim.sh"
+alias :c=qalc
+alias :v="nvim ~/.local/share/fish/fish_history"
 
 set -x EDITOR nvim
 set -x VISUAL swappy
+set -x FZF_DEFAULT_OPTS "
+  --color=bg+:#1d2021,bg:#282828,spinner:#d79921
+  --color=hl:#fabd2f,hl+:#fe8019
+  --color=fg:#ebdbb2,header:#d3869b
+  --color=info:#83a598,pointer:#fabd2f
+  --color=marker:#d79921,prompt:#b8bb26
+  --color=fg+:#ebdbb2,preview-bg:#3c3836,preview-fg:#ebdbb2
+  --color=border:#665c54"
 
 function sudo
     set -l password (gum input --password --placeholder "Enter password" \
@@ -68,3 +79,4 @@ end
 #   set_color green; echo '> '
 # end
 source /home/s1dd/.config/fish/completions/inLimbo.fish
+source /home/s1dd/.config/fish/fstack.fish
