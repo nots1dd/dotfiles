@@ -1,5 +1,9 @@
 ##  My Ricing so far :
 
+> [!WARNING]
+> 
+> Readme is outdated will update it soon.
+> 
 
 1. DISTRO -> `Arch Linux` (with linux zen kernel)
 2. WM -> `Hyprland`
