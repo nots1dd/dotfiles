@@ -45,17 +45,23 @@ zoxide init fish | source
 
 alias pamcan=pacman
 alias cd=z
-alias nn=nvim
 alias playultra="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Build\ 14344626/ULTRAKILL/ULTRAKILL.exe"
 alias lg=lazygit
 alias cat=bat
 alias :q=exit
 alias nvim="~/dotfiles/scripts/neovim.sh"
+alias nn="$(which nvim)"
 alias :c=qalc
+alias :e="nvim ~/.config/fish/config.fish"
+alias :t="nvim ~/misc/playground/test/test.cpp"
+alias :tc="g++ ~/misc/playground/test/test.cpp -o testsi"
+alias :tr="bash -c /home/s1dd/misc/playground/test/testsi"
+alias :rw="zen-browser ~/Documents/collegestuff/Resume.pdf"
+alias :r="okular ~/Documents/collegestuff/Resume.pdf"
 alias :v="nvim ~/.local/share/fish/fish_history"
+alias :f="nvim ~/.config/foot/foot.ini"
 
 set -x EDITOR nvim
-set -x VISUAL swappy
 set -x FZF_DEFAULT_OPTS "
   --color=bg+:#1d2021,bg:#282828,spinner:#d79921
   --color=hl:#fabd2f,hl+:#fe8019
@@ -80,3 +86,6 @@ end
 # end
 source /home/s1dd/.config/fish/completions/inLimbo.fish
 source /home/s1dd/.config/fish/fstack.fish
+
+# Created by `pipx` on 2025-02-20 17:20:10
+set PATH $PATH /home/s1dd/.local/bin
