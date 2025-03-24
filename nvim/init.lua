@@ -35,7 +35,8 @@ require "nvchad.autocmds"
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = {"*.c", "*.cpp", "*.h", "*.hpp"},
     callback = function()
-        vim.lsp.buf.format({ async = false })
+        vim.cmd("silent! !clang-format -i %")
+        vim.cmd("edit!")  -- Reload the buffer to reflect changes
     end,
 })
 
