@@ -17,16 +17,10 @@ const SessionButton = (name, icon, command, props = {}, colorid = 0) => {
         child: Widget.Label({
             className: 'txt-smaller session-button-desc',
             label: name,
-            css: 'color: #EBDBB2;', // Gruvbox FG
         }),
     });
-
     return Widget.Button({
-        onClicked: (button) => {
-            button.setCss('background: #98971a; color: #1d2021;'); // Gruvbox Green on Click
-            command();
-            Utils.timeout(200, () => button.setCss('background: rgba(40, 40, 40, 0.95); color: #EBDBB2;')); // Reset after click
-        },
+        onClicked: command,
         className: `session-button session-color-${colorid}`,
         child: Widget.Overlay({
             className: 'session-button-box',
@@ -35,19 +29,20 @@ const SessionButton = (name, icon, command, props = {}, colorid = 0) => {
                 className: 'icon-material',
                 label: icon,
             }),
-            overlays: [buttonDescription],
+            overlays: [
+                buttonDescription,
+            ]
         }),
         onHover: (button) => {
             const display = Gdk.Display.get_default();
             const cursor = Gdk.Cursor.new_from_name(display, 'pointer');
             button.get_window().set_cursor(cursor);
-        buttonDescription.revealChild = true;
+            buttonDescription.revealChild = true;
         },
         onHoverLost: (button) => {
             const display = Gdk.Display.get_default();
             const cursor = Gdk.Cursor.new_from_name(display, 'default');
             button.get_window().set_cursor(cursor);
-            button.setCss('background: rgba(40, 40, 40, 0.95); color: #EBDBB2;'); // Reset color
             buttonDescription.revealChild = false;
         },
         setup: (self) => self
@@ -58,7 +53,8 @@ const SessionButton = (name, icon, command, props = {}, colorid = 0) => {
             .on('focus-out-event', (self) => {
                 buttonDescription.revealChild = false;
                 self.toggleClassName('session-button-focused', false);
-            }),
+            })
+        ,
         ...props,
     });
 }
@@ -81,13 +77,11 @@ export default ({ id = 0 }) => {
             Widget.Label({
                 className: 'txt-title txt',
                 label: getString('Session'),
-                css: 'color: #B06089',
             }),
             Widget.Label({
                 justify: Gtk.Justification.CENTER,
                 className: 'txt-small txt',
-                label: getString('Use arrow keys to navigate.\nEnter to select, Esc to cancel.'),
-                css: 'color: #A89984;',
+                label: getString('Use arrow keys to navigate.\nEnter to select, Esc to cancel.')
             }),
         ]
     });
@@ -106,7 +100,6 @@ export default ({ id = 0 }) => {
         css: `
         min-width: ${monitors[id].width}px;
         min-height: ${monitors[id].height}px;
-        background: rgba(40, 40, 40, 0.95);
         `, // idk why but height = screen height doesn't fill
         vertical: true,
         children: [

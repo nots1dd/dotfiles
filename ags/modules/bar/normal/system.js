@@ -8,6 +8,7 @@ import Battery from 'resource:///com/github/Aylur/ags/service/battery.js';
 import { MaterialIcon } from '../../.commonwidgets/materialicon.js';
 import { AnimatedCircProg } from "../../.commonwidgets/cairo_circularprogress.js";
 import { WWO_CODE, WEATHER_SYMBOL, NIGHT_WEATHER_SYMBOL } from '../../.commondata/weather.js';
+import { setupCursorHover } from '../../.widgetutils/cursorhover.js';
 
 const WEATHER_CACHE_FOLDER = `${GLib.get_user_cache_dir()}/ags/weather`;
 Utils.exec(`mkdir -p ${WEATHER_CACHE_FOLDER}`);
@@ -20,7 +21,7 @@ const BarBatteryProgress = () => {
         circprog.toggleClassName('bar-batt-circprog-full', Battery.charged);
     }
     return AnimatedCircProg({
-        className: 'bar-batt-circprog',
+        className: `bar-batt-circprog ${userOptions.appearance.borderless ? 'bar-batt-circprog-borderless' : ''}`,
         vpack: 'center', hpack: 'center',
         extraSetup: (self) => self
             .hook(Battery, _updateProgress)
@@ -65,8 +66,9 @@ const UtilButton = ({ name, icon, onClicked }) => Button({
     vpack: 'center',
     tooltipText: name,
     onClicked: onClicked,
-    className: 'bar-util-btn icon-material txt-norm',
+    className: `bar-util-btn ${userOptions.appearance.borderless ? 'bar-util-btn-borderless' : ''} icon-material txt-norm`,
     label: `${icon}`,
+    setup: setupCursorHover
 })
 
 const Utilities = () => Box({
@@ -134,7 +136,7 @@ const BarGroup = ({ child }) => Widget.Box({
     className: 'bar-group-margin bar-sides',
     children: [
         Widget.Box({
-            className: 'bar-group bar-group-standalone bar-group-pad-system',
+            className: `bar-group${userOptions.appearance.borderless ? '-borderless' : ''} bar-group-standalone bar-group-pad-system`,
             children: [child],
         }),
     ]
@@ -173,7 +175,7 @@ const BatteryModule = () => Stack({
                             const feelsLike = weather.current_condition[0][`FeelsLike${userOptions.weather.preferredUnit}`];
                             const weatherSymbol = WEATHER_SYMBOL[WWO_CODE[weatherCode]];
                             self.children[0].label = weatherSymbol;
-                            self.children[1].label = `${temperature}°${userOptions.weather.preferredUnit} • Feels like ${feelsLike}°${userOptions.weather.preferredUnit}`;
+                            self.children[1].label = `${temperature}°${userOptions.weather.preferredUnit} • ${getString('Feels like')} ${feelsLike}°${userOptions.weather.preferredUnit}`;
                             self.tooltipText = weatherDesc;
                         }).catch((err) => {
                             try { // Read from cache
@@ -186,7 +188,7 @@ const BatteryModule = () => Stack({
                                 const feelsLike = weather.current_condition[0][`FeelsLike${userOptions.weather.preferredUnit}`];
                                 const weatherSymbol = WEATHER_SYMBOL[WWO_CODE[weatherCode]];
                                 self.children[0].label = weatherSymbol;
-                                self.children[1].label = `${temperature}°${userOptions.weather.preferredUnit} • Feels like ${feelsLike}°${userOptions.weather.preferredUnit}`;
+                                self.children[1].label = `${temperature}°${userOptions.weather.preferredUnit} • ${getString('Feels like')} ${feelsLike}°${userOptions.weather.preferredUnit}`;
                                 self.tooltipText = weatherDesc;
                             } catch (err) {
                                 print(err);
@@ -216,7 +218,7 @@ const BatteryModule = () => Stack({
 const switchToRelativeWorkspace = async (self, num) => {
     try {
         const Hyprland = (await import('resource:///com/github/Aylur/ags/service/hyprland.js')).default;
-        Hyprland.messageAsync(`dispatch workspace ${num > 0 ? '+' : ''}${num}`).catch(print);
+        Hyprland.messageAsync(`dispatch workspace r${num > 0 ? '+' : ''}${num}`).catch(print);
     } catch {
         execAsync([`${App.configDir}/scripts/sway/swayToRelativeWs.sh`, `${num}`]).catch(print);
     }

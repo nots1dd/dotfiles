@@ -46,9 +46,14 @@ zoxide init fish | source
 alias pamcan=pacman
 alias cd=z
 alias playultra="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Build\ 14344626/ULTRAKILL/ULTRAKILL.exe"
+alias playultranew="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Patch.16b/game/ULTRAKILL.exe"
+alias playgta="mangohud gamemoderun ~/Downloads/runasdate/RunAsDate.exe"
+alias playminecraft="mangohud gamemoderun DRI_PRIME=1 java -jar ~/Downloads/minecraft/TLauncher.v10/TLauncher.jar"
 alias lg=lazygit
 alias cat=bat
+alias ls=exa
 alias :q=exit
+alias :ex="chmod +x"
 alias nvim="~/dotfiles/scripts/neovim.sh"
 alias nn="$(which nvim)"
 alias :c=qalc
@@ -70,15 +75,6 @@ set -x FZF_DEFAULT_OPTS "
   --color=marker:#d79921,prompt:#b8bb26
   --color=fg+:#ebdbb2,preview-bg:#3c3836,preview-fg:#ebdbb2
   --color=border:#665c54"
-
-function sudo
-    set -l password (gum input --password --placeholder "Enter password" \
-        --header "  What you upto?" \
-        --header.foreground "#fabd2f" \
-        --prompt.foreground "#83a598" \
-        --cursor.foreground "#96D4A3")
-    echo $password | command sudo -S $argv
-end
 
 # function fish_prompt
 #   set_color cyan; echo (pwd)

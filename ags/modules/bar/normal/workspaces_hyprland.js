@@ -179,8 +179,8 @@ const WorkspaceContents = (count = 10) => {
 }
 
 export default () => EventBox({
-    onScrollUp: () => Hyprland.messageAsync(`dispatch workspace -1`).catch(print),
-    onScrollDown: () => Hyprland.messageAsync(`dispatch workspace +1`).catch(print),
+    onScrollUp: () => Hyprland.messageAsync(`dispatch workspace r-1`).catch(print),
+    onScrollDown: () => Hyprland.messageAsync(`dispatch workspace r+1`).catch(print),
     onMiddleClick: () => toggleWindowOnAllMonitors('osk'),
     onSecondaryClick: () => App.toggleWindow('overview'),
     attribute: {
@@ -191,7 +191,7 @@ export default () => EventBox({
         homogeneous: true,
         className: 'bar-group-margin',
         children: [Box({
-            className: 'bar-group bar-group-standalone bar-group-pad',
+            className: `bar-group${userOptions.appearance.borderless ? '-borderless' : ''} bar-group-standalone bar-group-pad`,
             css: 'min-width: 2px;',
             children: [WorkspaceContents(userOptions.workspaces.shown)],
         })]
