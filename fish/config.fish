@@ -54,17 +54,19 @@ alias cat=bat
 alias ls=exa
 alias :q=exit
 alias :ex="chmod +x"
-alias nvim="~/dotfiles/scripts/neovim.sh"
+alias snvim="sudo -E nvim"
 alias nn="$(which nvim)"
 alias :c=qalc
-alias :e="nvim ~/.config/fish/config.fish"
+alias :f="nvim ~/.config/fish/config.fish"
 alias :t="nvim ~/misc/playground/test/test.cpp"
 alias :tc="g++ ~/misc/playground/test/test.cpp -o testsi"
 alias :tr="bash -c /home/s1dd/misc/playground/test/testsi"
 alias :rw="zen-browser ~/Documents/collegestuff/Resume.pdf"
 alias :r="okular ~/Documents/collegestuff/Resume.pdf"
 alias :v="nvim ~/.local/share/fish/fish_history"
-alias :f="nvim ~/.config/foot/foot.ini"
+alias :foot="nvim ~/.config/foot/foot.ini"
+alias :fnh='env fish_history=(random) fish --init-command "set_color yellow; echo -e \\"\\n*** Fish history is DISABLED for this session ***\\n\\"; set_color normal"'
+alias :fh='nvim ~/.local/share/fish/fish_history'
 
 set -x EDITOR nvim
 set -x FZF_DEFAULT_OPTS "
@@ -82,6 +84,7 @@ set -x FZF_DEFAULT_OPTS "
 # end
 source /home/s1dd/.config/fish/completions/inLimbo.fish
 source /home/s1dd/.config/fish/fstack.fish
+source /home/s1dd/.config/fish/serve.fish
 
 # Created by `pipx` on 2025-02-20 17:20:10
 set PATH $PATH /home/s1dd/.local/bin

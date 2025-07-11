@@ -1,0 +1,7 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "generate_enhanced_header",
+        "generate_enhanced_buttons"
+    ]
+}

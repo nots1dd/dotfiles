@@ -32,6 +32,9 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
+vim.api.nvim_set_hl(0, "NvDashFind", { fg = "#89b4fa", bold = true })
+vim.api.nvim_set_hl(0, "NvDashRecent", { fg = "#fab387", italic = true })
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.c", "*.cpp", "*.h", "*.hpp" },
   callback = function()

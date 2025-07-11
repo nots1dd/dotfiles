@@ -10,6 +10,7 @@ const HYPRLAND_KEYBIND_CONFIG_FILE = userOptions.cheatsheet.keybinds.configPath 
 const KEYBIND_SECTIONS_PER_PAGE = 3;
 const getKeybindList = () => {
     let data = Utils.exec(`${App.configDir}/scripts/hyprland/get_keybinds.py --path ${HYPRLAND_KEYBIND_CONFIG_FILE}`);
+    print("get_keybinds.py returned:", data);
     if (data == "\"error\"") {
         Utils.timeout(2000, () => Utils.execAsync(['notify-send',
             'Update path to keybinds',
