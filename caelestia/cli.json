@@ -1,0 +1,20 @@
+{
+  "toggles": {
+      "music": {
+          "spotify": {
+              "enable": true,
+              "match": [{ "class": "Cmus" }, { "initialTitle": "CMUS" }, { "initialTitle": "Cmus baby" }],
+              "command": ["foot", "cmus"],
+              "move": true
+          }
+      },
+      "todo": {
+        "todoist": {
+            "enable": true,
+            "match": [{ "class": "Todoist" }],
+            "command": ["foot","nvim", "tasks.txt"],
+            "move": true
+        }
+    }
+  }
+}

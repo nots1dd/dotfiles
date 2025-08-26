@@ -1,0 +1,34 @@
+{
+      "anim": {
+        "durations": {
+            "scale": 0.5
+        }
+    },
+    "font": {
+      "family": {
+          "material": "Material Symbols Rounded",
+          "mono": "SpaceMono Nerd Font",
+          "sans": "SpaceMono Nerd Font"
+      },
+      "size": {
+          "scale": 1
+      }
+  },
+  "background": {
+        "desktopClock": {
+            "enabled": true
+        },
+        "enabled": true,
+        "visualiser": {
+            "enabled": true,
+            "autoHide": false,
+            "rounding": 1,
+            "spacing": 1
+        }
+  },
+  "paths": {
+      "mediaGif": "~/Downloads/modified-bear-radiohead.gif",
+      "sessionGif": "~/Downloads/kill.gif",
+      "wallpaperDir": "~/Pictures/Wallpapers/"
+  }
+}

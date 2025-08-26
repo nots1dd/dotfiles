@@ -45,7 +45,7 @@ zoxide init fish | source
 
 alias pamcan=pacman
 alias cd=z
-alias playultra="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Build\ 14344626/ULTRAKILL/ULTRAKILL.exe"
+alias playultra="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Patch.16b/game/ULTRAKILL.exe"
 alias playultranew="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Patch.16b/game/ULTRAKILL.exe"
 alias playgta="mangohud gamemoderun ~/Downloads/runasdate/RunAsDate.exe"
 alias playminecraft="mangohud gamemoderun DRI_PRIME=1 java -jar ~/Downloads/minecraft/TLauncher.v10/TLauncher.jar"
