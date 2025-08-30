@@ -12,4 +12,7 @@ map("n", "<leader>=", ":resize +5<CR>", { desc = "Increase horizontal term heigh
 map("n", "<leader>-", ":resize -5<CR>", { desc = "Decrease vertical term height" })
 map("n", "<leader>pa", ":echo expand('%:p')<CR>", { desc = "Print the current buffer's location" })
 
+map("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neo-tree" })
+map("n", "<leader>o", "<cmd>Neotree focus<cr>", { desc = "Focus Neo-tree" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
