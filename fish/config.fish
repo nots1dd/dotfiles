@@ -37,21 +37,17 @@ set -g theme_newline_cursor yes
 set -g theme_newline_prompt '>> '
 set -g fish_prompt_pwd_dir_length 0
 
-if test -f ~/.cache/ags/user/generated/terminal/sequences.txt
-    cat ~/.cache/ags/user/generated/terminal/sequences.txt
-end
-
 zoxide init fish | source
 
 alias pamcan=pacman
 alias cd=z
-alias playultra="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Build\ 14344626/ULTRAKILL/ULTRAKILL.exe"
+alias playultra="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Patch.16b/game/ULTRAKILL.exe"
 alias playultranew="mangohud gamemoderun DRI_PRIME=1 ~/Games/ULTRAKILL.Patch.16b/game/ULTRAKILL.exe"
 alias playgta="mangohud gamemoderun ~/Downloads/runasdate/RunAsDate.exe"
 alias playminecraft="mangohud gamemoderun DRI_PRIME=1 java -jar ~/Downloads/minecraft/TLauncher.v10/TLauncher.jar"
 alias lg=lazygit
 alias cat=bat
-alias ls=exa
+alias ls="eza --icons"
 alias :q=exit
 alias :ex="chmod +x"
 alias snvim="sudo -E nvim"
@@ -67,6 +63,7 @@ alias :v="nvim ~/.local/share/fish/fish_history"
 alias :foot="nvim ~/.config/foot/foot.ini"
 alias :fnh='env fish_history=(random) fish --init-command "set_color yellow; echo -e \\"\\n*** Fish history is DISABLED for this session ***\\n\\"; set_color normal"'
 alias :fh='nvim ~/.local/share/fish/fish_history'
+alias gcm="git clone git@github.com:"
 
 set -x EDITOR nvim
 set -x FZF_DEFAULT_OPTS "
@@ -85,6 +82,11 @@ set -x FZF_DEFAULT_OPTS "
 source /home/s1dd/.config/fish/completions/inLimbo.fish
 source /home/s1dd/.config/fish/fstack.fish
 source /home/s1dd/.config/fish/serve.fish
+source /home/s1dd/.config/fish/git.fish
+
+if not contains /home/s1dd/addr2line/target/release $PATH
+    set PATH /home/s1dd/addr2line/target/release $PATH
+end
 
 # Created by `pipx` on 2025-02-20 17:20:10
 set PATH $PATH /home/s1dd/.local/bin
