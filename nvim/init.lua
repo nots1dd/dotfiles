@@ -30,26 +30,7 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
-require "nvchad.autocmds"
-
-vim.api.nvim_set_hl(0, "NvDashFind", { fg = "#89b4fa", bold = true })
-vim.api.nvim_set_hl(0, "NvDashRecent", { fg = "#fab387", italic = true })
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.c", "*.cpp", "*.h", "*.hpp" },
-  callback = function()
-    if not vim.g.skip_format_on_write then
-      vim.lsp.buf.format({ async = false })
-    end
-  end,
-})
-
--- Create :Wp command to write without formatting
-vim.api.nvim_create_user_command("Wp", function()
-  vim.g.skip_format_on_write = true
-  vim.cmd("write")
-  vim.g.skip_format_on_write = false
-end, {})
+require "autocmds"
 
 vim.schedule(function()
   require "mappings"

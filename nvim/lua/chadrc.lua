@@ -5,9 +5,8 @@
 ---@type ChadrcConfig
 local M = {}
 
-
 M.base46 = {
-	theme = "gruvbox",
+	theme = "gruvchad",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
@@ -38,50 +37,53 @@ local function get_os_info()
   return vim.loop.os_uname().sysname .. " " .. vim.loop.os_uname().release
 end
 
+local function get_packages()
+  -- works for arch (pacman), fallback to generic count
+  local pkg = vim.fn.system("pacman -Q | wc -l 2>/dev/null")
+  pkg = tonumber(pkg) or "?"
+  return pkg
+end
+
+local function get_uptime()
+  local up = vim.fn.system("uptime -p 2>/dev/null"):gsub("\n", "")
+  return up ~= "" and up or "unknown"
+end
+
 M.nvdash = {
   load_on_startup = true,
+
   header = {
-    "⬜⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬜⬜⬛⬛🟥🟥🟥🟥🟥⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜⬜⬜⬜⬜",
-    "⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜⬜⬜⬜",
-    "⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜⬜⬜⬜",
-    "⬜⬛🟥🟥🟥🟥🟥🟥🟥🟥⬛⬛🟥🟥🟥⬛⬜⬜⬜⬜⬜",
-    "⬜⬛🟥🟥🟥🟥🟥🟥⬛⬛⬜⬛🟥🟥🟥⬛⬜⬜⬜⬜⬜",
-    "⬜⬛🟥🟥🟥🟥🟥⬛⬜⬜⬜⬛🟥🟥⬛⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬛🟥🟥🟥⬛⬜⬜⬜⬛🟥🟥🟥⬛⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬛🟥🟥⬛⬜⬜⬜⬛🟥🟥🟥🟥⬛⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬛🟥🟥🟥⬛⬛⬛🟥🟥🟥⬛⬛⬜⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬜⬛🟥🟥🟥🟥🟥🟥🟥⬛🟥⬛⬜⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬜⬜⬛🟥🟥🟥🟥⬛⬛🟥🟥⬛⬛⬜⬜⬜⬜⬜⬜",
-    "⬜⬜⬜⬜⬜⬛⬛⬛⬛🟥⬛🟥🟥🟥🟥⬛⬛⬜⬜⬜⬜",
-    "⬜⬜⬜⬛⬛⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜⬜",
-    "⬜⬜⬛🟥⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬛⬜⬜",
-    "⬜⬜⬛⬛🟥🟥🟥🟥🟥🟥🟥🟥🟥🟦🟥🟥🟥🟥⬛⬜⬜",
-    "⬜⬜⬛⬛⬛🟥⬛🟥⬛⬛🟥🟦🟦🟦🟦🟦🟥🟥🟥⬛⬜",
-    "⬜⬛🟥⬛🟥⬛⬛⬛🟥🟥🟥🟦🟦🟦🟦🟦🟦🟥🟥⬛⬜",
-    "⬜⬛🟥⬛⬛🟥⬛🟥⬛⬛🟦🟦🟦⬛⬛🟦🟦🟦🟥⬛⬜",
-    "⬜⬛🟥⬛🟥⬛⬛⬛🟥🟥🟦🟦⬛⬜⬜⬛🟦🟦🟦🟥⬛",
-    "⬜⬛🟥⬛🟥🟥⬛🟥🟥🟦🟦⬛⬜⬜⬜⬛🟦🟦🟦🟥⬛",
+    "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗  ",
+    "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║  ",
+    "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║  ",
+    "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║  ",
+    "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║  ",
+    "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝  ",
     "",
-    "  Hello Sidd - " .. os.date("%A, %d %B %Y  %H:%M:%S"),
-    "  NVIM (" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch .. ") session in '" .. vim.fn.getcwd() .. "'",
-    "  OS: " .. get_os_info(),
+    "───────────────────────────────────────────────────────────",
+    "",
+    "  OS: " .. get_os_info(),
+    "  Kernel: " .. vim.loop.os_uname().release,
+    "  Shell: " .. os.getenv("SHELL"),
+    "  Terminal: " .. (os.getenv("TERM") or "unknown"),
+    "  Uptime: " .. get_uptime(),
+    "",
+    "───────────────────────────────────────────────────────────",
+    "  Welcome back, nots1dd — " .. os.date("%A, %d %B %Y %H:%M:%S"),
     "",
   },
 
   buttons = {
-    { txt = "  Find File", keys = "ff", cmd = "Telescope find_files", hl = "NvDashFind" },
-    { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles", hl = "NvDashRecent" },
+    { txt = "  Find File",     keys = "ff", cmd = "Telescope find_files", hl = "NvDashFind" },
+    { txt = "  Recent Files",  keys = "fo", cmd = "Telescope oldfiles", hl = "NvDashRecent" },
+    { txt = "  File Browser",  keys = "cw", cmd = "Open Yazi",          hl = "NvDashRecent" },
 
     { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
 
     {
       txt = function()
         local stats = require("lazy").stats()
-        local ms = math.floor(stats.startuptime) .. " ms"
+        local ms = math.floor(stats.startuptime) .. "ms"
         return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
       end,
       hl = "NvDashFooter",
@@ -89,7 +91,7 @@ M.nvdash = {
     },
 
     { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
-  }
+  },
 }
 
 M.colorify = {
