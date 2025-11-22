@@ -79,4 +79,4 @@ vim.lsp.config("clangd", {
   end,
 })
 
-vim.lsp.enable({ "html", "cssls", "clangd" })
+vim.lsp.enable({ "html", "cssls", "clangd", "cmake", "bash" })

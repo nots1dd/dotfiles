@@ -50,7 +50,7 @@ local function get_uptime()
 end
 
 M.nvdash = {
-  load_on_startup = true,
+  load_on_startup = false,
 
   header = {
     "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗  ",
