@@ -79,4 +79,7 @@ vim.lsp.config("clangd", {
   end,
 })
 
-vim.lsp.enable({ "html", "cssls", "clangd", "cmake", "bash" })
+local servers = { "html", "cssls", "clangd", "asm", "gopls", "cmake", "bash", "pyright" }
+vim.lsp.enable(servers)
+
+-- read :h vim.lsp.config for changing options of lsp servers 

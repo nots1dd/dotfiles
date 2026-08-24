@@ -30,7 +30,7 @@ return {
         {
           pane = 2,
           section = "terminal",
-          cmd = "/usr/bin/colorscript -e crunchbang-mini",
+          cmd = "colorscript -e crunchbang-mini",
           height = 5,
           padding = 1,
         },

@@ -1,0 +1,135 @@
+config_version = 12
+
+[bar.default]
+center = [ "clock", "date" ]
+end = [ "audio_visualizer", "media", "tray", "notifications", "network", "bluetooth", "battery", "power_profile", "widget" ]
+icon_color = "tertiary"
+start = [ "weather", "launcher", "workspaces", "active_window", "special-workspaces" ]
+widget_spacing = 8
+
+[battery]
+warning_threshold = 20
+
+[dock]
+enabled = false
+
+[location]
+address = "Chennai, India"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.65000000000000002
+        background_radius = 32.0
+        center_password_text = false
+        input_opacity = 0.46000000000000002
+        input_radius = 26.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = false
+        show_login_button = false
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = false
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 942.0
+    cy = 716.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        bands = 68
+        color_1 = "error"
+        color_2 = "on_error"
+        show_when_idle = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 128.0
+    box_width = 304.0
+    cx = 1743.7999267578125
+    cy = 988.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "sysmon"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        color = "secondary"
+        display = "graph"
+        stat = "cpu_usage"
+        stat2 = "ram_pct"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 96.0
+    box_width = 352.0
+    cx = 1744.0
+    cy = 76.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background_color = "primary"
+        background_opacity = 0.0
+        clock_style = "digital"
+        color = "primary"
+        format = "{:%H:%M:%S}"
+
+[plugins]
+enabled = [ "oldirtty/color_picker", "nightwatch75/file-search", "weinguyen/shell-command", "jamesfeeder/special-workspaces" ]
+
+[shell]
+font_family = "Gabarito"
+
+    [shell.screenshot]
+    directory = "/home/s1dd/Pictures/Screenshots"
+    save_to_file = false
+
+[theme]
+builtin = "Gruvbox"
+source = "wallpaper"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "cava", "foot", "hyprland", "qt" ]
+
+[wallpaper.default]
+path = "/home/s1dd/Pictures/Wallpapers/hxh-new.jpg"
+
+[wallpaper.last]
+path = "/home/s1dd/Pictures/Wallpapers/hxh-new.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/s1dd/Pictures/Wallpapers/hxh-new.jpg"
+
+[widget.special-workspaces]
+type = "jamesfeeder/special-workspaces:special-workspaces"
+
+[widget.widget]
+type = "oldirtty/color_picker:widget"

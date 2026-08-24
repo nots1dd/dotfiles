@@ -91,3 +91,8 @@ end
 
 # Created by `pipx` on 2025-02-20 17:20:10
 set PATH $PATH /home/s1dd/.local/bin
+
+set PATH $PATH /opt/cuda/bin
+
+# opencode
+fish_add_path /home/s1dd/.opencode/bin
