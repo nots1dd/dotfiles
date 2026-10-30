@@ -50,7 +50,7 @@
 
 (map! :leader
       :desc "Focus Treemacs"
-      "e" #'treemacs)
+      "e" #'+treemacs/toggle)
 
 ;; Vim-style window navigation with Ctrl.
 (map! :n
@@ -68,89 +68,27 @@
       :desc "Code actions"
       "c a" #'my/eglot-code-actions)
 
+;;; custom dashboard stuff
+
+(setq fancy-splash-image (concat doom-private-dir "splash.png"))
+
+(add-hook! '+dashboard-functions :append
+           ;; The `+dashboard-insert` function centers the text (actually, it makes the text
+           ;; respect the value of the `+dashboard-anchor' variable, which is set to
+           ;;`(center . center)` by default).
+           (+dashboard-insert "Hello s1dd (//_^)"))
+
+(assoc-delete-all "Open org-agenda" +dashboard-menu-sections)
+(assoc-delete-all "Open private configuration" +dashboard-menu-sections)
+(assoc-delete-all "Jump to bookmark" +dashboard-menu-sections)
+
 ;; ; behaves like :
 (map! :n ";" #'evil-ex)
 
-;;; Floating vterm
 (require 'vterm)
 
-(defvar my/vterm-float-frame nil)
-(defvar my/vterm-float-buffer "*vterm-float*")
-
-(defun my/vterm-float-center (frame parent)
-  "Center FRAME inside PARENT."
-  (let* ((parent-width  (frame-pixel-width parent))
-         (parent-height (frame-pixel-height parent))
-         (child-width   (frame-pixel-width frame))
-         (child-height  (frame-pixel-height frame))
-         (left (/ (- parent-width child-width) 2))
-         (top  (/ (- parent-height child-height) 2)))
-    (set-frame-position frame left top)))
-
-(defun my/vterm-float-toggle ()
-  "Toggle a centered floating vterm."
-  (interactive)
-
-  ;; If the floating terminal already exists, close it.
-  (if (and my/vterm-float-frame
-           (frame-live-p my/vterm-float-frame))
-
-      (progn
-        (delete-frame my/vterm-float-frame)
-        (setq my/vterm-float-frame nil))
-
-    ;; Otherwise create it.
-    (let* ((parent (selected-frame))
-           (frame
-            (make-frame
-             `((parent-frame . ,parent)
-               (minibuffer . nil)
-               (undecorated . t)
-               (border-width . 1)
-               (internal-border-width . 10)
-
-               ;; Terminal size.
-               (width . 100)
-               (height . 30)
-
-               ;; Don't show scrollbars.
-               (vertical-scroll-bars . nil)
-               (horizontal-scroll-bars . nil)
-
-               ;; Make the child frame interactive.
-               ;; Don't treat it as another normal Emacs frame.
-               (no-other-frame . t)
-               (desktop-dont-save . t)))))
-
-      (setq my/vterm-float-frame frame)
-
-      ;; Center it inside the parent frame.
-      (my/vterm-float-center frame parent)
-
-      ;; Create/use the vterm buffer inside the child frame.
-      (with-selected-frame frame
-        (let ((buffer (get-buffer my/vterm-float-buffer)))
-          (if (and buffer
-                   (buffer-live-p buffer))
-              (set-window-buffer (frame-root-window frame) buffer)
-            (set-window-buffer
-             (frame-root-window frame)
-             (vterm my/vterm-float-buffer)))
-
-          (delete-other-windows)
-          (select-window (frame-root-window frame)))
-
-        ;; Give the terminal focus.
-        (select-frame-set-input-focus frame)))))
-
-;;; Alt+i toggles the terminal in normal buffers.
-(map! :n "M-i" #'my/vterm-float-toggle)
-
-;;; Alt+i also toggles it while vterm has focus.
-(after! vterm
-  (define-key vterm-mode-map
-    (kbd "M-i")
-    #'my/vterm-float-toggle))
+(setq cursor-in-non-selected-windows 'box)
+(map! :n "M-i" #'popterm-toggle)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your

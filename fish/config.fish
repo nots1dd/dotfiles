@@ -37,6 +37,8 @@ set -g theme_newline_cursor yes
 set -g theme_newline_prompt '>> '
 set -g fish_prompt_pwd_dir_length 0
 
+set -gx TERMINAL foot
+
 zoxide init fish | source
 
 alias pamcan=pacman
@@ -96,3 +98,9 @@ set PATH $PATH /opt/cuda/bin
 
 # opencode
 fish_add_path /home/s1dd/.opencode/bin
+
+# kimi-code
+fish_add_path -g "/home/s1dd/.kimi-code/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/s1dd/gcp/google-cloud-sdk/path.fish.inc' ]; . '/home/s1dd/gcp/google-cloud-sdk/path.fish.inc'; end
